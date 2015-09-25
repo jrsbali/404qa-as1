@@ -33,6 +33,8 @@ public class Hand {
 	public int getResult(){
 		if(!validPokerHand()) return -1;
 		
+		if (containsFullHouse()) return 6;
+		
 		if (containsFlush()) return 5;
 		
 		if (containsStraight()) return 4;
@@ -113,6 +115,11 @@ public class Hand {
 		return true;
 	}
 	
+	
+	
+	private boolean containsFullHouse(){
+		return getRankSet()==2;
+	}
 	
 	
 	private boolean containsFlush(){
