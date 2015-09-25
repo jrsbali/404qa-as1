@@ -93,11 +93,11 @@ public class TestPokerOutcomes extends TestCase {
 	}
 	
 	public void test_fourOfAKind(){
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Spades));
+		hand.add(new Card(Card.Rank.Six,Card.Suit.Hearts));
 		
 		assertEquals(7, hand.getResult());
 	}

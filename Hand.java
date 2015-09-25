@@ -33,6 +33,8 @@ public class Hand {
 	public int getResult(){
 		if(!validPokerHand()) return -1;
 		
+		if(hasFourOfAKind()) return 7;
+		
 		if (hasFullHouse()) return 6;
 		
 		if (hasFlush()) return 5;
@@ -47,6 +49,25 @@ public class Hand {
 		
 	}
 	
+	private boolean hasFourOfAKind() {
+		if(getRankSetSize()==2){
+			Iterator<Card> iter = cards.iterator();
+			int counter = 1;
+			int currValue = iter.next().getRank().getVal();
+			while(iter.hasNext()){
+				if(currValue==iter.next().getRank().getVal()){
+					counter++;
+				}else{
+					break;
+				}
+			}// end while
+			
+			if (counter==1 || counter == 4)
+				return true;
+		}
+		return false;
+	}
+
 	private boolean hasOnePair(){
 		// compare the set of integers
 		// if its less than the max size then
