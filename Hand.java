@@ -33,25 +33,25 @@ public class Hand {
 	public int getResult(){
 		if(!validPokerHand()) return -1;
 		
-		if (containsFullHouse()) return 6;
+		if (hasFullHouse()) return 6;
 		
-		if (containsFlush()) return 5;
+		if (hasFlush()) return 5;
 		
-		if (containsStraight()) return 4;
+		if (hasStraight()) return 4;
 		
-		if(containsTwoPair()) return 3;
+		if(hasTwoPair()) return 3;
 		
-		if(containsOnePair()) return 2;
+		if(hasOnePair()) return 2;
 		
 		return 0;
 		
 	}
 	
-	private boolean containsOnePair(){
+	private boolean hasOnePair(){
 		// compare the set of integers
 		// if its less than the max size then
 		// there is at least a pair within the hands
-		return cards.size()!=getRankSet();
+		return cards.size()!=getRankSetSize();
 	}
 
 	/**
@@ -59,15 +59,15 @@ public class Hand {
 	 * at least 3 then it has 2 pairs
 	 * @return
 	 */
-	private boolean containsTwoPair(){
-		return getRankSet()==3;
+	private boolean hasTwoPair(){
+		return getRankSetSize()==3;
 	}
 	
 	
-	private boolean containsStraight(){
+	private boolean hasStraight(){
 		List<Integer> intList = new ArrayList<Integer>();
 
-		if (getRankSet()==MAX_SIZE){
+		if (getRankSetSize()==MAX_SIZE){
 
 			Iterator<Card> iter = cards.iterator();
 			while (iter.hasNext()){
@@ -95,7 +95,7 @@ public class Hand {
 		return false;
 	} // end straight
 	
-	private int getRankSet(){
+	private int getRankSetSize(){
 		Iterator<Card> iter = cards.iterator();
 		Set<Integer> set = new HashSet<Integer>();
 		// put all of the values in a set
@@ -117,13 +117,13 @@ public class Hand {
 	
 	
 	
-	private boolean containsFullHouse(){
-		return getRankSet()==2;
+	private boolean hasFullHouse(){
+		return getRankSetSize()==2;
 	}
 	
 	
-	private boolean containsFlush(){
-		if(sameSuits() && !(containsStraight())){
+	private boolean hasFlush(){
+		if(sameSuits() && !(hasStraight())){
 			return true;
 		}
 		
