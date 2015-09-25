@@ -7,6 +7,14 @@ public class Hand {
 	}
 	
 	
+	public boolean validPokerHand(){
+		return false;
+	}
+	
+	
+	
+	
+	
 	
 
 }
