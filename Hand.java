@@ -34,6 +34,8 @@ public class Hand {
 	public int getResult(){
 		if(!validPokerHand()) return -1;
 		
+		if (containsFlush()) return 5;
+		
 		if (containsStraight()) return 4;
 		
 		if(containsTwoPair()) return 3;
@@ -110,6 +112,14 @@ public class Hand {
 		}
 		
 		return true;
+	}
+	
+	public boolean containsFlush(){
+		if(sameSuits() && !(containsStraight())){
+			return true;
+		}
+		
+		return false;
 	}
 
 	

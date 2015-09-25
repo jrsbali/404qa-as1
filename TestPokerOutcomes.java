@@ -77,13 +77,13 @@ public class TestPokerOutcomes extends TestCase {
 	}
 	
 	public void test_flush(){
-		hand.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Four,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Three,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ten,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Seven,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
 		
-		assertEquals(5, hand.containsFlush());
+		assertEquals(5, hand.getResult());
 	}
 	
 	
