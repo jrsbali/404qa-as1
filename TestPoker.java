@@ -56,6 +56,13 @@ public class TestPoker extends TestCase {
 		Card card2 = new Card(Card.Rank.Two,Card.Suit.Hearts);
 		assertEquals("AceSpades", card1.toString());
 		assertEquals("TwoHearts", card2.toString());
+	}
+	
+	
+	public void test_rankings(){
+		
+		
+		
 		
 		
 	}
