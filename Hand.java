@@ -34,8 +34,6 @@ public class Hand {
 		if(!validPokerHand()) return -1;
 		
 		
-		
-		
 		if (hasStraightFlush()) return 9;
 		
 		if(hasFourOfAKind()) return 8;

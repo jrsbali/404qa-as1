@@ -60,6 +60,17 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(3, hand.getResult());
 	}
 	
+	
+	public void test_threeOFAKind(){
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Queen,Card.Suit.Clubs));
+		
+		assertEquals(4 , hand.getResult());
+	}
+	
 	public void test_straight(){
 		hand.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Four,Card.Suit.Hearts));
