@@ -3,7 +3,7 @@ package com.poker;
 public class Card {
 	public enum Suit { Diamonds, Hearts, Spades, Clubs}
 	public enum Rank {
-		Ace(100), // ace is the highest card of its suit
+		Ace(1), // ace is the highest card of its suit
 		Two(2), Three(3),
 		Four(4), Five(5), Six(6),
 		Seven(7), Eight(8), Nine(9),

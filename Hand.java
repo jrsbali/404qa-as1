@@ -31,9 +31,10 @@ public class Hand {
 		if(!validPokerHand()) return -1;
 		
 
+		
+		if(containsTwoPair()) return 3;
+		
 		if(containsOnePair()) return 2;
-		
-		
 		
 		return 0;
 		
@@ -45,7 +46,15 @@ public class Hand {
 		// there is at least a pair within the hands
 		return cards.size()!=getRankSet();
 	}
-	
+
+	/**
+	 * if the set of all the integers has the cardinality of 
+	 * at least 3 then it has 2 pairs
+	 * @return
+	 */
+	private boolean containsTwoPair(){
+		return getRankSet()==3;
+	}
 	
 	private int getRankSet(){
 		Iterator<Card> iter = cards.iterator();
