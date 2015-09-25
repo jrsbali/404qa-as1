@@ -14,8 +14,7 @@ public class Round {
 	
 	
 	public boolean validNumberOfPlayers(){
-		boolean result = numberOfPlayers <= 4;
-		return result;
+		return numberOfPlayers >= 2 && numberOfPlayers <= 4;
 	}
 	
 	
