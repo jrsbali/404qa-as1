@@ -64,6 +64,22 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(4, hand.getResult());
 	}
 	
+	
+	
+	public void test_sameSuits(){
+		hand.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Four,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Three,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		
+		assertTrue(hand.sameSuits());
+		
+	}
+	
+	
+	
+	
 	public void tearDown(){
 		System.out.println("Running: tearDown");
 	        hand = null;
