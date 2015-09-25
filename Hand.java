@@ -1,6 +1,7 @@
 package com.poker;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -33,6 +34,7 @@ public class Hand {
 	public int getResult(){
 		if(!validPokerHand()) return -1;
 		
+		if (hasRoyalFlush()) return 10;
 		
 		if (hasStraightFlush()) return 9;
 		
@@ -54,6 +56,27 @@ public class Hand {
 		
 	}
 	
+	private boolean hasRoyalFlush() {
+		if(getRankSetSize()==MAX_SIZE && sameSuits()){
+			Iterator<Card> iter = cards.iterator();
+			
+			List<Integer> intList = new ArrayList<Integer>();
+				while (iter.hasNext()){
+					int curr = iter.next().getRank().getVal();
+					intList.add(curr);
+				}
+			
+				Collections.sort(intList);
+				int[] flushArray = {1,10,11,12,13};
+				
+				for(int i=0;i<intList.size();i++){
+					if(flushArray[i]!=intList.get(i))
+						return false;
+				}
+		}
+		return true;
+	}
+
 	private boolean hasThreeOfAKind() {
 		if(getRankSetSize()==3){
 			Iterator<Card> iter = cards.iterator();
@@ -183,6 +206,5 @@ public class Hand {
 		return false;
 	}
 
-	
 
 }

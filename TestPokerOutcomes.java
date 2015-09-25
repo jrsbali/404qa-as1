@@ -123,7 +123,7 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(9 , hand.getResult());
 	}
 	
-	public void test_roayFlush(){
+	public void test_royalFlush(){
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.King,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Queen,Card.Suit.Clubs));
