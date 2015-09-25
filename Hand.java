@@ -71,8 +71,6 @@ public class Hand {
 				return true;
 		}
 		return false;
-			
-			
 	}
 
 	private boolean hasStraightFlush() {
