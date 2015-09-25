@@ -56,6 +56,9 @@ public class Hand {
 		return getRankSet()==3;
 	}
 	
+	
+
+	
 	private int getRankSet(){
 		Iterator<Card> iter = cards.iterator();
 		Set<Integer> set = new HashSet<Integer>();
@@ -64,8 +67,7 @@ public class Hand {
 			set.add(iter.next().getRank().getVal());
 		return set.size();
 	}
-	
-	
+
 	
 	
 
