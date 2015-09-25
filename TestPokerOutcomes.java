@@ -62,10 +62,10 @@ public class TestPokerOutcomes extends TestCase {
 	
 	
 	public void test_threeOFAKind(){
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
+		hand.add(new Card(Card.Rank.King,Card.Suit.Spades));
 		hand.add(new Card(Card.Rank.Queen,Card.Suit.Clubs));
 		
 		assertEquals(4 , hand.getResult());

@@ -44,8 +44,7 @@ public class Hand {
 		
 		if (hasStraight()) return 5;
 		
-		// hasThreeOfAKind return 4
-				
+		if(hasThreeOfAKind()) return 4;
 		
 		if(hasTwoPair()) return 3;
 		
@@ -55,6 +54,27 @@ public class Hand {
 		
 	}
 	
+	private boolean hasThreeOfAKind() {
+		if(getRankSetSize()==3){
+			Iterator<Card> iter = cards.iterator();
+			int counter = 1;
+			int currValue = iter.next().getRank().getVal();
+			while(iter.hasNext()){
+				if(currValue==iter.next().getRank().getVal()){
+					counter++;
+				}else{
+					break;
+				}
+			}// end while
+			
+			if (counter==1 || counter == 3)
+				return true;
+		}
+		return false;
+			
+			
+	}
+
 	private boolean hasStraightFlush() {
 		return hasStraight() && sameSuits(); 
 	}
