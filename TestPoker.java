@@ -52,12 +52,10 @@ public class TestPoker extends TestCase {
 //		assertEquals("AceSpades", card1.toString());
 //		assertEquals("TwoHearts", card2.toString());
 		
-		Card card1 = new Card(Card.RANK.Ace,Card.SUIT.Spades);
-		Card card2 = new Card(Card.RANK.Two,Card.SUIT.Hearts);
+		Card card1 = new Card(Card.Rank.Ace,Card.Suit.Spades);
+		Card card2 = new Card(Card.Rank.Two,Card.Suit.Hearts);
 		assertEquals("AceSpades", card1.toString());
 		assertEquals("TwoHearts", card2.toString());
-		
-		
 		
 		
 	}
