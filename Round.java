@@ -9,12 +9,13 @@ public class Round {
 	
 	
 	public void submit(Hand playerHand){
-		
+		numberOfPlayers++;
 	}
 	
 	
 	public boolean validNumberOfPlayers(){
-		return false;
+		boolean result = numberOfPlayers <= 4;
+		return result;
 	}
 	
 	

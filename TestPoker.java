@@ -14,12 +14,19 @@ public class TestPoker extends TestCase {
 		round.submit(new Hand());
 		
 		assertFalse(round.validNumberOfPlayers());		
-		
-		
-		
 	}
 	
+	public void test_RoundWith1Player(){
+		Round round = new Round();
+		round.submit(new Hand());
+		
+		assertFalse(round.validNumberOfPlayers());
+	}
 	
+	public void test_RoundWithNoPlayer(){
+		Round round = new Round();
+		assertFalse(round.validNumberOfPlayers());
+	}
 	
 	
 	
