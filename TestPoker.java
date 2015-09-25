@@ -47,10 +47,19 @@ public class TestPoker extends TestCase {
 	}
 	
 	public void test_cardPrintout(){
-		Card card1 = new Card("Ace","Spades");
-		Card card2 = new Card("Two","Hearts");
+//		Card card1 = new Card("Ace","Spades");
+//		Card card2 = new Card("Two","Hearts");
+//		assertEquals("AceSpades", card1.toString());
+//		assertEquals("TwoHearts", card2.toString());
+		
+		Card card1 = new Card(Card.RANK.Ace,Card.SUIT.Spades);
+		Card card2 = new Card(Card.RANK.Two,Card.SUIT.Hearts);
 		assertEquals("AceSpades", card1.toString());
 		assertEquals("TwoHearts", card2.toString());
+		
+		
+		
+		
 	}
 	
 	

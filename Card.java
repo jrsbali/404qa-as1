@@ -1,13 +1,8 @@
 package com.poker;
 
-
-
-
 public class Card {
-	
 	String rank;
 	String suit;
-
 	public Card() {
 	}
 	
