@@ -8,6 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import com.poker.Card.Suit;
+
 public class Hand {
 	
 	final int MAX_SIZE = 5;
@@ -97,6 +99,17 @@ public class Hand {
 		while(iter.hasNext())
 			set.add(iter.next().getRank().getVal());
 		return set.size();
+	}
+	
+	public boolean sameSuits(){
+		Iterator<Card> iter = cards.iterator();
+		Suit currSuit = iter.next().getSuit();
+		while(iter.hasNext()){
+			if (currSuit!=iter.next().getSuit())
+			return false;
+		}
+		
+		return true;
 	}
 
 	
