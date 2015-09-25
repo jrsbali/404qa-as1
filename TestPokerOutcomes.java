@@ -31,6 +31,12 @@ public class TestPokerOutcomes extends TestCase {
 		hand = new Hand();
 	}
 	
+	public void tearDown(){
+		System.out.println("Running: tearDown");
+	        hand = null;
+	        assertNull(hand);
+	}
+	
 	public void test_onePair(){
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
@@ -65,17 +71,6 @@ public class TestPokerOutcomes extends TestCase {
 	}
 	
 	
-	
-	public void test_sameSuits(){
-		hand.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Four,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Three,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
-		
-		assertTrue(hand.sameSuits());
-	}
-	
 	public void test_flush(){
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ten,Card.Suit.Clubs));
@@ -86,14 +81,8 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(5, hand.getResult());
 	}
 	
-	
-	
-	
-	public void tearDown(){
-		System.out.println("Running: tearDown");
-	        hand = null;
-	        assertNull(hand);
-	}
+
+
 	
 
 }

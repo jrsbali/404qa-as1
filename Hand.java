@@ -17,7 +17,6 @@ public class Hand {
 	int numberOfCards = 0;
 	
 	public Hand() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public void add(Card card){
@@ -103,7 +102,7 @@ public class Hand {
 		return set.size();
 	}
 	
-	public boolean sameSuits(){
+	private boolean sameSuits(){
 		Iterator<Card> iter = cards.iterator();
 		Suit currSuit = iter.next().getSuit();
 		while(iter.hasNext()){
@@ -114,7 +113,9 @@ public class Hand {
 		return true;
 	}
 	
-	public boolean containsFlush(){
+	
+	
+	private boolean containsFlush(){
 		if(sameSuits() && !(containsStraight())){
 			return true;
 		}
