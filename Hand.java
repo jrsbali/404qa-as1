@@ -1,5 +1,7 @@
 package com.poker;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -30,7 +32,7 @@ public class Hand {
 	public int getResult(){
 		if(!validPokerHand()) return -1;
 		
-
+		if (containsStraight()) return 4;
 		
 		if(containsTwoPair()) return 3;
 		
@@ -57,7 +59,36 @@ public class Hand {
 	}
 	
 	
+	private boolean containsStraight(){
+		List<Integer> intList = new ArrayList<Integer>();
 
+		if (getRankSet()==MAX_SIZE){
+
+			Iterator<Card> iter = cards.iterator();
+			while (iter.hasNext()){
+				int curr = iter.next().getRank().getVal();
+				intList.add(curr);
+			}
+			
+			// sort in ascended order
+			Collections.sort(intList);
+			
+			Iterator<Integer> sortedList = intList.iterator(); 
+			int currInt = sortedList.next();
+			
+			// check if the difference in value between the 
+			// ranks 1
+			while (sortedList.hasNext()){
+				int next = sortedList.next();
+				if(currInt+1 != next) return false;
+				currInt = next;
+			}// must iterate the entire hand for it to be a straight
+			return true;
+			
+		}// end if
+		
+		return false;
+	} // end straight
 	
 	private int getRankSet(){
 		Iterator<Card> iter = cards.iterator();
@@ -68,7 +99,6 @@ public class Hand {
 		return set.size();
 	}
 
-	
 	
 
 }

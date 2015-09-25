@@ -62,11 +62,13 @@ public class TestPokerOutcomes extends TestCase {
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
 		
 		assertEquals(4, hand.getResult());
-		
-		
 	}
 	
-	
+	public void tearDown(){
+		System.out.println("Running: tearDown");
+	        hand = null;
+	        assertNull(hand);
+	}
 	
 
 }
