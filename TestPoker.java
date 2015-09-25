@@ -13,8 +13,7 @@ public class TestPoker extends TestCase {
 		round.submit(new Hand());
 		round.submit(new Hand());
 		
-		assertFalse(false, round.validNumberOfPlayers());
-		
+		assertFalse(round.validNumberOfPlayers());		
 		
 		
 		
