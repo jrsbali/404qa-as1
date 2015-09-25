@@ -81,6 +81,18 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(5, hand.getResult());
 	}
 	
+	
+	public void test_fullHouse(){
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		
+		assertEquals(6, hand.getResult());
+	}
+	
+
 
 
 	
