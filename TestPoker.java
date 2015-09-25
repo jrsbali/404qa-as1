@@ -46,7 +46,12 @@ public class TestPoker extends TestCase {
 		assertTrue(hand.validPokerHand());
 	}
 	
-	
+	public void test_cardPrintout(){
+		Card card1 = new Card("Ace","Spades");
+		Card card2 = new Card("Two","Hearts");
+		assertEquals("AceSpades", card1.toString());
+		assertEquals("TwoHearts", card2.toString());
+	}
 	
 	
 	
