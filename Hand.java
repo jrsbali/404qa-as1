@@ -60,21 +60,24 @@ public class Hand {
 		if(getRankSetSize()==MAX_SIZE && sameSuits()){
 			Iterator<Card> iter = cards.iterator();
 			
+			// put all card ranks in a list
 			List<Integer> intList = new ArrayList<Integer>();
-				while (iter.hasNext()){
-					int curr = iter.next().getRank().getVal();
-					intList.add(curr);
-				}
+			while (iter.hasNext()){
+				int curr = iter.next().getRank().getVal();
+				intList.add(curr);
+			}
 			
-				Collections.sort(intList);
-				int[] flushArray = {1,10,11,12,13};
-				
-				for(int i=0;i<intList.size();i++){
-					if(flushArray[i]!=intList.get(i))
-						return false;
-				}
+			// sort the ranks list
+			Collections.sort(intList);
+			int[] flushArray = {1,10,11,12,13};
+			
+			for(int i=0;i<intList.size();i++){
+				if(flushArray[i]!=intList.get(i)) return false;
+			}
+
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	private boolean hasThreeOfAKind() {
