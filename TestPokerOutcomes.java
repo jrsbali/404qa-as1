@@ -92,6 +92,17 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(6, hand.getResult());
 	}
 	
+	public void test_fourOfAKind(){
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		
+		assertEquals(7, hand.getResult());
+	}
+	
+	
 
 
 
