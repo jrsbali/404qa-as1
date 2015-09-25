@@ -52,7 +52,6 @@ public class TestPokerOutcomes extends TestCase {
 		hand.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
 		
 		assertEquals(3, hand.getResult());
-		
 	}
 	
 	

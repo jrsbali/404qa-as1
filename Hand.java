@@ -40,21 +40,21 @@ public class Hand {
 	}
 	
 	private boolean containsOnePair(){
-		Iterator<Card> iter = cards.iterator();
-		Set<Integer> set = new HashSet<Integer>();
-		
-		// put all of the values in a set
-		while(iter.hasNext())
-			set.add(iter.next().getRank().getVal());
-	
 		// compare the set of integers
 		// if its less than the max size then
 		// there is at least a pair within the hands
-		return cards.size()!=set.size();
+		return cards.size()!=getRankSet();
 	}
 	
 	
-	
+	private int getRankSet(){
+		Iterator<Card> iter = cards.iterator();
+		Set<Integer> set = new HashSet<Integer>();
+		// put all of the values in a set
+		while(iter.hasNext())
+			set.add(iter.next().getRank().getVal());
+		return set.size();
+	}
 	
 	
 	
