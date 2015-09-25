@@ -74,7 +74,16 @@ public class TestPokerOutcomes extends TestCase {
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		
 		assertTrue(hand.sameSuits());
+	}
+	
+	public void test_flush(){
+		hand.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Four,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Three,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		
+		assertEquals(5, hand.containsFlush());
 	}
 	
 	
