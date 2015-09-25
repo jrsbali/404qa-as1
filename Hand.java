@@ -33,6 +33,9 @@ public class Hand {
 	public int getResult(){
 		if(!validPokerHand()) return -1;
 		
+		
+		if (hasStraightFlush()) return 9;
+		
 		if(hasFourOfAKind()) return 7;
 		
 		if (hasFullHouse()) return 6;
@@ -49,6 +52,10 @@ public class Hand {
 		
 	}
 	
+	private boolean hasStraightFlush() {
+		return hasStraight() && sameSuits(); 
+	}
+
 	private boolean hasFourOfAKind() {
 		if(getRankSetSize()==2){
 			Iterator<Card> iter = cards.iterator();
@@ -125,6 +132,10 @@ public class Hand {
 		return set.size();
 	}
 	
+	/**
+	 * checks to see if ALL the cards in hand has the same suits
+	 * @return
+	 */
 	private boolean sameSuits(){
 		Iterator<Card> iter = cards.iterator();
 		Suit currSuit = iter.next().getSuit();

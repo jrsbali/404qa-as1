@@ -102,6 +102,16 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(7, hand.getResult());
 	}
 	
+	public void test_straightFlush(){
+		hand.add(new Card(Card.Rank.Nine,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Eight,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Seven,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
+		
+		assertEquals(9 , hand.getResult());
+	}
+	
 	
 
 
