@@ -39,6 +39,7 @@ public class TestPoker extends TestCase {
 		hand.add(new Card());
 		hand.add(new Card());
 		hand.add(new Card());
+		hand.add(new Card());
 		assertTrue(hand.validPokerHand());
 	}
 	
