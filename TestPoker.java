@@ -31,9 +31,15 @@ public class TestPoker extends TestCase {
 	public void test_validPokerHand(){
 		Hand hand = new Hand();
 		assertFalse(hand.validPokerHand());
-		
-		
-		
+	}
+	
+	public void test_validPokerHandWith5Cards(){
+		Hand hand = new Hand();
+		hand.add(new Card());
+		hand.add(new Card());
+		hand.add(new Card());
+		hand.add(new Card());
+		assertTrue(hand.validPokerHand());
 	}
 	
 	
