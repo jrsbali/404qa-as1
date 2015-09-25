@@ -67,7 +67,7 @@ public class TestPokerOutcomes extends TestCase {
 		hand.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
 		
-		assertEquals(4, hand.getResult());
+		assertEquals(5, hand.getResult());
 	}
 	
 	
@@ -78,7 +78,7 @@ public class TestPokerOutcomes extends TestCase {
 		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
 		
-		assertEquals(5, hand.getResult());
+		assertEquals(6, hand.getResult());
 	}
 	
 	
@@ -89,7 +89,7 @@ public class TestPokerOutcomes extends TestCase {
 		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
 		
-		assertEquals(6, hand.getResult());
+		assertEquals(7, hand.getResult());
 	}
 	
 	public void test_fourOfAKind(){
@@ -99,7 +99,7 @@ public class TestPokerOutcomes extends TestCase {
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Spades));
 		hand.add(new Card(Card.Rank.Six,Card.Suit.Hearts));
 		
-		assertEquals(7, hand.getResult());
+		assertEquals(8, hand.getResult());
 	}
 	
 	public void test_straightFlush(){

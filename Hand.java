@@ -34,15 +34,20 @@ public class Hand {
 		if(!validPokerHand()) return -1;
 		
 		
+		
+		
 		if (hasStraightFlush()) return 9;
 		
-		if(hasFourOfAKind()) return 7;
+		if(hasFourOfAKind()) return 8;
 		
-		if (hasFullHouse()) return 6;
+		if (hasFullHouse()) return 7;
 		
-		if (hasFlush()) return 5;
+		if (hasFlush()) return 6;
 		
-		if (hasStraight()) return 4;
+		if (hasStraight()) return 5;
+		
+		// hasThreeOfAKind return 4
+				
 		
 		if(hasTwoPair()) return 3;
 		
