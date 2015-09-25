@@ -4,8 +4,14 @@ import junit.framework.TestCase;
 
 public class TestPoker extends TestCase {
 	
+	Round round;
+	
+	public void setUp(){
+		round = new Round();
+	}
+	
+	
 	public void test_RoundWithOver4Players(){
-		Round round = new Round();
 		round.submit(new Hand());
 		round.submit(new Hand());
 		round.submit(new Hand());
@@ -16,14 +22,11 @@ public class TestPoker extends TestCase {
 	}
 	
 	public void test_RoundWith1Player(){
-		Round round = new Round();
 		round.submit(new Hand());
-		
 		assertFalse(round.validNumberOfPlayers());
 	}
 	
 	public void test_RoundWithNoPlayer(){
-		Round round = new Round();
 		assertFalse(round.validNumberOfPlayers());
 	}
 	
