@@ -35,6 +35,14 @@ public class Card {
 
 	public String toString() {
 		return rank.toString()+suit.toString();
-	};
+	}
+	
+	public Suit getSuit(){
+		return suit;
+	}
+	
+	public Rank getRank(){
+		return rank;
+	}
 	
 }
