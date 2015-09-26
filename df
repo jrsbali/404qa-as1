@@ -1,0 +1,236 @@
+[33mcommit c2730374a3932ad86fc1993007ba745e6405f39b[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Sat Sep 26 00:04:06 2015 -0400
+
+    added README.txt
+
+[33mcommit 2b583e01bc10a9ab9502f54d1b5a21b2a43e8a74[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 19:21:51 2015 -0400
+
+    debugged test_royalFlush() to pass
+
+[33mcommit 464b996ffe37e8e3ce879705f1eef991a07b5576[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 19:15:20 2015 -0400
+
+    implemented test_royalFlush() to pass
+
+[33mcommit cd7d29b98467e5539e6904192f6797b1a73f0c40[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 18:59:24 2015 -0400
+
+    created test_royalFlush()
+
+[33mcommit 11c38180100b67591b405ef66ff9b7ad00fa41c3[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 18:43:31 2015 -0400
+
+    implemented test_threeOfAKind() to pass
+
+[33mcommit d5a762002a0d4fc3956a226aca0565f7a1b03f70[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 18:39:42 2015 -0400
+
+    created test_threeOfAKind()
+
+[33mcommit e7bcddb61c8055799ba4897b3a97a0818ea88ec7[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 18:37:30 2015 -0400
+
+    refactor: offsetted the Hand::getResults by +1, forgot to implement ThreeOfAKind (which will return 4)...
+
+[33mcommit aa46ba8c3104b3f3147bd57bb155933dd0aef321[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 18:34:30 2015 -0400
+
+    created test_straightFlush and implemented it to pass
+
+[33mcommit 0e5ad9fc770ff0a99ed2fb1594fdf09aa5b841e3[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 18:27:27 2015 -0400
+
+    implemented test_fourOfAKind() to pass
+
+[33mcommit 898b96f825ef0d44858d1e548ad12e7027fe78a0[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 18:12:26 2015 -0400
+
+    created test_fourOfAKind()
+
+[33mcommit 60c4451d84c02065f38cc6f073a6e61691011239[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 18:10:47 2015 -0400
+
+    refactor: changed functions with names contains.. to has... and changed function name getRankSet -> getRankSetSize. To improve readability
+
+[33mcommit 8e81eeeee7256adae4293b9ed45835c7e5694606[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 18:07:04 2015 -0400
+
+    implemented test_fullHouse() to pass
+
+[33mcommit f64f78e9041164b938363976a4c0b93a15297ebd[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 18:04:00 2015 -0400
+
+    craeted test_fullHouse()
+
+[33mcommit 7635c5681892f8137b7195a517d36a804d2ecd87[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 17:55:45 2015 -0400
+
+    refactored: removed the test_sameSuit, and made the Hand::sameSuits and
+    Hand::containsFlush to be of private restrictions
+
+[33mcommit fe250f4e59a93d483c37a7738cc021c4a2d4d206[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 17:43:27 2015 -0400
+
+    implemented test_flush() to pass
+
+[33mcommit 8af2dd3c20a479eb54f7eddeb4d81b891f897335[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 17:38:55 2015 -0400
+
+    created test_flush()
+
+[33mcommit a5e73d32d47aec65398ff09afad398f46bfe1ed0[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 17:36:54 2015 -0400
+
+    implemented test_sameSuits() to pass
+
+[33mcommit 1153360f615fb92eac68bdb986ae23643ba95e7d[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 17:31:51 2015 -0400
+
+    created test_sameSuits()
+
+[33mcommit 674acda69f08d4f5c0b76a25889511a4f8a442a8[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 17:28:50 2015 -0400
+
+    implemented code for test_straight
+
+[33mcommit 133525235a2a043f81a3914262024f273fd1e408[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 14:49:29 2015 -0400
+
+    created test_straight
+
+[33mcommit b2c26a0ea1af8e315d635b8a9e752be7c6fb3d93[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 14:45:19 2015 -0400
+
+    implemented code to pass test_twoPair
+
+[33mcommit a9d1122aafbdd875d2b55d4305689c587e3fb7ae[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 14:40:41 2015 -0400
+
+    refactored Hand class by creating a getRankSet() to look for apirs
+
+[33mcommit d992012f153eaf291d2dc8d2f3b59e79a0f2dde2[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 14:37:19 2015 -0400
+
+    created test for outcome of twoPair
+
+[33mcommit 4518835c558bfda58175c7dc0e990feeb0e22a3d[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 14:32:07 2015 -0400
+
+    implemented onepair test to pass
+
+[33mcommit 0f3ced288a2d36c21eac3e0c12e5f80987212e84[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 14:20:06 2015 -0400
+
+    created TestPokerOutcomes.java and created a test for a onepair hand
+
+[33mcommit 6f532afe7e7604c1ae10a49e4e7c3ca7adb87fff[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 13:58:41 2015 -0400
+
+    implemented code for the reworked the cardPrintout test
+
+[33mcommit e1c8c05fae37161eb05daf7c064516964e914dab[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 13:56:03 2015 -0400
+
+    reworked the cardPrintout test case to accept Enums instead of strings
+
+[33mcommit d469c1572751c7d62b71d0b44c400b11fb4d17c0[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 13:41:11 2015 -0400
+
+    passed current test cardPrintout
+
+[33mcommit b0a0853ec8018406a1ba3a02719283231ad48459[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 13:39:08 2015 -0400
+
+    created test cardPrintout
+
+[33mcommit 0419d35be0608ce9682e2913858fd290670265d2[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 13:21:50 2015 -0400
+
+    refactored TestPoker to have a setUp()
+
+[33mcommit a46fdc1b0416280670543f55a5cbcf2775190bd2[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 13:20:09 2015 -0400
+
+    implemented code for validPokerHand
+
+[33mcommit e1af596c2d6d1441301760e0a9babb56bed675d7[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 13:09:48 2015 -0400
+
+    created test_validPokerHandWith5Cards()
+
+[33mcommit 08ca4abe04e96b9ee37a7d5b0a7d26080241e77b[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 13:07:06 2015 -0400
+
+    created test for Hand::validPokerHand
+
+[33mcommit 49518e43c592c8cf1a6cee019e218ecd0c8aa722[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 12:59:01 2015 -0400
+
+    cleaned up Round::validNumberOfPlayers() to pass newly added tests
+
+[33mcommit 8c97aa5e79865ac3f65d3aaa3d9f1cd4edcf096d[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 12:54:50 2015 -0400
+
+    created test for round with only 1 player and no players
+
+[33mcommit f777782bacbd625e42e2fb1b74c63eef3f8dd033[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 12:42:01 2015 -0400
+
+    Revert "implemented Round::validNumberOfPlayers()"
+    
+    This reverts commit 555056900aa634a12b3b7f102fbc27d07f65d6a9.
+
+[33mcommit 555056900aa634a12b3b7f102fbc27d07f65d6a9[m
+Author: Jairus Bali <JairusBali@cmail.carleton.ca>
+Date:   Fri Sep 25 12:36:20 2015 -0400
+
+    implemented Round::validNumberOfPlayers()
+
+[33mcommit 921fc44a47a0a8e1435cbdc3321c42e7e3f209c6[m
+Author: jairus bali <jrsbali@home.com>
+Date:   Fri Sep 25 12:31:48 2015 -0400
+
+    created stubs to pass RoundWithOver4Players()
+
+[33mcommit 3fbb72f583d67f9df15121e4d2c1957e3469e73e[m
+Author: jairus bali <jrsbali@home.com>
+Date:   Fri Sep 25 12:25:42 2015 -0400
+
+    created test_RoundWithOver4Players()

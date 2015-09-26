@@ -184,8 +184,31 @@ public class TestPokerOutcomes extends TestCase {
 		List<String> expected = new ArrayList<String>
 			(Arrays.asList("Randy", "Clyde", "Jody", "Ulric"));
 		assertEquals(expected,round.rankResults());
+	}
+	
+	
+	/**
+	 * print out the hand 
+	 * e.g. "playerName RankSuit RankSuit RankSuit RankSuit RankSuit"
+	 */
+	public void test_handStringOutput(){
+		hand = new Hand("Ulric");
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
+		hand.add(new Card(Card.Rank.King,Card.Suit.Hearts));
+		hand.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
+		
+		
+		String expected = 
+				"Ulric AceClubs AceHearts KingHearts KingClubs QueenDiamonds";
+		
+		assertEquals(expected, hand.printHand());
+		
+		
 		
 	}
+	
 
 
 

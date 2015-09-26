@@ -217,6 +217,7 @@ public class Hand implements Comparable {
 		return false;
 	}
 
+	
 	@Override
 	public int compareTo(Object other) {
 		// descending order
