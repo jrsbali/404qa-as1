@@ -1,5 +1,9 @@
 package com.poker;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import junit.framework.TestCase;
 /**
  * @author jairus bali
@@ -32,9 +36,9 @@ public class TestPokerOutcomes extends TestCase {
 	}
 	
 	public void tearDown(){
-		System.out.println("Running: tearDown");
-	        hand = null;
-	        assertNull(hand);
+//		System.out.println("Running: tearDown");
+        hand = null;
+        assertNull(hand);
 	}
 	
 	public void test_onePair(){
@@ -165,18 +169,20 @@ public class TestPokerOutcomes extends TestCase {
 		
 		// straight flush
 		Hand hand4 = new Hand("Clyde");
-		hand.add(new Card(Card.Rank.Nine,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Eight,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Seven,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
+		hand4.add(new Card(Card.Rank.Nine,Card.Suit.Clubs));
+		hand4.add(new Card(Card.Rank.Eight,Card.Suit.Clubs));
+		hand4.add(new Card(Card.Rank.Seven,Card.Suit.Clubs));
+		hand4.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		hand4.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
+
 		
 		round.submit(hand1);
 		round.submit(hand2);
 		round.submit(hand3);
 		round.submit(hand4);
 		
-		String[] expected = {"Randy", "Clyde", "Jody", "Ulric"};
+		List<String> expected = new ArrayList<String>
+			(Arrays.asList("Randy", "Clyde", "Jody", "Ulric"));
 		assertEquals(expected,round.rankResults());
 		
 	}

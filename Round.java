@@ -39,13 +39,6 @@ public class Round {
 		}
 	
 		return rankings;
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	
