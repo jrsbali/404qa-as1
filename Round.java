@@ -12,8 +12,6 @@ public class Round {
 	private List<Hand> hands;
 	
 	private Set<Card> cardsInPlay;
-	final int EXPECTED_CARDS_PER_HAND = 5;
-	
 	
 	public Round() {
 		hands = new ArrayList<Hand>();
@@ -21,18 +19,25 @@ public class Round {
 	}
 	
 	
+	/**
+	 * 
+	 * Validates playerHands prior to ranking them
+	 * 
+	 * @param playerHand
+	 * @throws DuplicateIDException
+	 * @throws DuplicateCardsException
+	 */
 	public void submit(Hand playerHand) 
 			throws DuplicateIDException, DuplicateCardsException {
 		
 		if(hasDuplicateCards(playerHand)) throw new DuplicateCardsException();
-		
 		
 		if(isUniqueID(playerHand.getPlayerID())){
 			numberOfPlayers++;
 			hands.add(playerHand);
 		}else
 			throw new DuplicateIDException();
-	}
+	} // end submit
 	
 	
 	private boolean hasDuplicateCards(Hand playerHand) {
