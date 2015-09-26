@@ -1,10 +1,14 @@
 package com.poker;
 
+import static org.junit.Assert.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 /**
  * @author jairus bali
  * 
@@ -28,20 +32,22 @@ import junit.framework.TestCase;
  * 
  *
  */
-public class TestPokerOutcomes extends TestCase {
+public class TestPokerOutcomes {
 	
 	Hand hand;
+	
+	@Before
 	public void setUp(){
 		hand = new Hand("TestPokerOutcomes");
 	}
-	
+	@After
 	public void tearDown(){
 //		System.out.println("Running: tearDown");
         hand = null;
         assertNull(hand);
 	}
 	
-	
+	@Test
 	public void test_highCard(){
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Nine,Card.Suit.Hearts));
@@ -54,6 +60,7 @@ public class TestPokerOutcomes extends TestCase {
 		
 	}
 	
+	@Test
 	public void test_onePair(){
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
@@ -67,6 +74,7 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(2, hand.getResult());
 	}
 	
+	@Test
 	public void test_twoPair(){
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
@@ -78,6 +86,7 @@ public class TestPokerOutcomes extends TestCase {
 	}
 	
 	
+	@Test
 	public void test_threeOFAKind(){
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
@@ -88,6 +97,7 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(4 , hand.getResult());
 	}
 	
+	@Test
 	public void test_straight(){
 		hand.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Four,Card.Suit.Hearts));
@@ -99,6 +109,7 @@ public class TestPokerOutcomes extends TestCase {
 	}
 	
 	
+	@Test
 	public void test_flush(){
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ten,Card.Suit.Clubs));
@@ -109,7 +120,7 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(6, hand.getResult());
 	}
 	
-	
+	@Test
 	public void test_fullHouse(){
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
@@ -120,6 +131,7 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(7, hand.getResult());
 	}
 	
+	@Test
 	public void test_fourOfAKind(){
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
@@ -130,6 +142,7 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(8, hand.getResult());
 	}
 	
+	@Test
 	public void test_straightFlush(){
 		hand.add(new Card(Card.Rank.Nine,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Eight,Card.Suit.Clubs));
@@ -140,6 +153,7 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(9 , hand.getResult());
 	}
 	
+	@Test
 	public void test_royalFlush(){
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.King,Card.Suit.Clubs));
@@ -150,6 +164,8 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(10 , hand.getResult());
 	}
 	
+	
+	@Test
 	public void test_4playerRanking(){
 		Round round = new Round();
 		
@@ -188,15 +204,18 @@ public class TestPokerOutcomes extends TestCase {
 		hand4.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
 		hand4.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
 
-		
-		round.submit(hand1);
-		round.submit(hand2);
-		round.submit(hand3);
-		round.submit(hand4);
-		
-		List<String> expected = new ArrayList<String>
-			(Arrays.asList("Randy", "Clyde", "Jody", "Ulric"));
-		assertEquals(expected,round.rankResults());
+		try{
+			round.submit(hand1);
+			round.submit(hand2);
+			round.submit(hand3);
+			round.submit(hand4);
+			
+			List<String> expected = new ArrayList<String>
+				(Arrays.asList("Randy", "Clyde", "Jody", "Ulric"));
+			assertEquals(expected,round.rankResults());
+		}catch(DuplicateIDException d){
+				d.getMessage();
+		}
 	}
 	
 	
@@ -204,6 +223,7 @@ public class TestPokerOutcomes extends TestCase {
 	 * print out the hand 
 	 * e.g. "playerName RankSuit RankSuit RankSuit RankSuit RankSuit"
 	 */
+	@Test
 	public void test_handStringOutput(){
 		hand = new Hand("Ulric");
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
