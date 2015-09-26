@@ -95,8 +95,8 @@ public class TestPokerOutcomes extends TestCase {
 	
 	public void test_fullHouse(){
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
-		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
 		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
 		
@@ -133,6 +133,54 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(10 , hand.getResult());
 	}
 	
+	public void test_4playerRanking(){
+		Round round = new Round();
+		
+		// royal flush
+		Hand hand1 = new Hand("Randy");
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Queen,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Jack,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Ten,Card.Suit.Clubs));
+		
+		
+		// full house
+		Hand hand2 = new Hand("Jody");
+		hand2.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
+		hand2.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
+		hand2.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		
+		
+		// two of a kind
+		Hand hand3 = new Hand("Ulric");
+		hand3.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand3.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
+		hand3.add(new Card(Card.Rank.King,Card.Suit.Hearts));
+		hand3.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand3.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
+		
+		
+		// straight flush
+		Hand hand4 = new Hand("Clyde");
+		hand.add(new Card(Card.Rank.Nine,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Eight,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Seven,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
+		
+
+		round.submit(hand1);
+		round.submit(hand2);
+		round.submit(hand3);
+		round.submit(hand4);
+		
+		
+		assertEquals({"Randy","Clyde","Jody","Ulric"},round.rankResults());
+		
+	}
 
 
 
