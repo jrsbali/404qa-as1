@@ -2,7 +2,7 @@ package com.poker;
 
 import junit.framework.TestCase;
 
-public class TestPoker extends TestCase {
+public class TestPokerRound extends TestCase {
 	
 	Round round;
 	
@@ -59,11 +59,12 @@ public class TestPoker extends TestCase {
 	}
 	
 	
-	public void test_rankings(){
+	public void test_validPlayerIDs(){
+		Hand hand1 = new Hand("Player1");
+		Hand hand2 = new Hand("Player1");
 		
-		
-		
-		
+		round.submit(hand1);
+		assertEquals(InvalidPlayerIDException.class, round.submit(hand2));
 		
 	}
 	

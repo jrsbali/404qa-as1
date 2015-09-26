@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	TestPoker.class,
+	TestPokerRound.class,
 	TestPokerOutcomes.class
 })
 
