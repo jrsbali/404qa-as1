@@ -20,7 +20,9 @@ public class TestPokerRound {
 	
 	@Test
 	public void test_RoundWithOver4Players() 
-			throws DuplicateIDException, DuplicateCardsException{
+			throws DuplicateIDException, DuplicateCardsException,
+			InvalidPokerHand
+	{
 		round.submit(new Hand("a"));
 		round.submit(new Hand("b"));
 		round.submit(new Hand("c"));
@@ -32,7 +34,9 @@ public class TestPokerRound {
 	
 	@Test
 	public void test_RoundWith1Player()
-			throws DuplicateIDException, DuplicateCardsException {
+			throws DuplicateIDException, DuplicateCardsException,
+			InvalidPokerHand
+	{
 		round.submit(new Hand("TestPokerRound"));
 		assertFalse(round.validNumberOfPlayers());
 	}
@@ -76,7 +80,9 @@ public class TestPokerRound {
 	
 	@Test(expected=DuplicateIDException.class)
 	public void throws_validPlayerIDs() 
-			throws DuplicateIDException, DuplicateCardsException  {
+			throws DuplicateIDException, DuplicateCardsException,
+			InvalidPokerHand
+	{
 		Hand hand1 = new Hand("Player1");
 		Hand hand2 = new Hand("player1");
 		
@@ -86,7 +92,8 @@ public class TestPokerRound {
 	
 	@Test(expected=DuplicateCardsException.class)
 	public void test_duplicateCardsInSubmittedHands()
-			throws DuplicateIDException, DuplicateCardsException{
+			throws DuplicateIDException, DuplicateCardsException,
+			InvalidPokerHand{
 		Hand hand1 = new Hand("Player1");
 		Hand hand2 = new Hand("Player2");
 		

@@ -28,7 +28,11 @@ public class Round {
 	 * @throws DuplicateCardsException
 	 */
 	public void submit(Hand playerHand) 
-			throws DuplicateIDException, DuplicateCardsException {
+			throws DuplicateIDException, DuplicateCardsException,
+			InvalidPokerHand
+	{
+		
+		if (!playerHand.validPokerHand()) throw new InvalidPokerHand();
 		
 		if(hasDuplicateCards(playerHand)) throw new DuplicateCardsException();
 		

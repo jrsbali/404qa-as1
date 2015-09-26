@@ -167,7 +167,9 @@ public class TestPokerOutcomes {
 	
 	@Test
 	public void test_4playerRanking() 
-	throws DuplicateIDException, DuplicateCardsException{
+			throws DuplicateIDException, DuplicateCardsException,
+			InvalidPokerHand
+	{
 		Round round = new Round();
 		
 		// royal flush
