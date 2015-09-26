@@ -1,7 +1,6 @@
 package com.poker;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -11,13 +10,19 @@ import java.util.Set;
 
 import com.poker.Card.Suit;
 
-public class Hand {
+public class Hand implements Comparable {
 	
 	final int MAX_SIZE = 5;
 	List<Card> cards = new LinkedList<Card>();
 	int numberOfCards = 0;
 	
+	String nameID;
+	
 	public Hand() {
+	}
+	
+	public Hand(String nameID) {
+		this.nameID = nameID;
 	}
 	
 	public void add(Card card){
@@ -25,6 +30,9 @@ public class Hand {
 		numberOfCards++;
 	}
 	
+	public String getPlayerID(){
+		return nameID;
+	}
 	
 	public boolean validPokerHand(){
 		return cards.size()==MAX_SIZE;
@@ -209,5 +217,10 @@ public class Hand {
 		return false;
 	}
 
+	@Override
+	public int compareTo(Object other) {
+		// descending order
+		return ((Hand)other).getResult()-this.getResult();
+	}
 
 }

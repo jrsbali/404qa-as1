@@ -171,14 +171,13 @@ public class TestPokerOutcomes extends TestCase {
 		hand.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
 		
-
 		round.submit(hand1);
 		round.submit(hand2);
 		round.submit(hand3);
 		round.submit(hand4);
 		
-		
-		assertEquals({"Randy","Clyde","Jody","Ulric"},round.rankResults());
+		String[] expected = {"Randy", "Clyde", "Jody", "Ulric"};
+		assertEquals(expected,round.rankResults());
 		
 	}
 
