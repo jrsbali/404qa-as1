@@ -22,9 +22,9 @@ public class TestPokerRound {
 	public void test_RoundWithOver4Players() throws DuplicateIDException{
 		round.submit(new Hand("a"));
 		round.submit(new Hand("b"));
+		round.submit(new Hand("c"));
 		round.submit(new Hand("d"));
 		round.submit(new Hand("e"));
-		round.submit(new Hand("f"));
 		
 		assertFalse(round.validNumberOfPlayers());		
 	}
@@ -75,12 +75,32 @@ public class TestPokerRound {
 	@Test(expected=DuplicateIDException.class)
 	public void throws_validPlayerIDs() throws DuplicateIDException  {
 		Hand hand1 = new Hand("Player1");
-		Hand hand2 = new Hand("Player1");
+		Hand hand2 = new Hand("player1");
 		
 		round.submit(hand1);
 		round.submit(hand2);
 	}
 	
+	
+	public void test_duplicateCardsInSubmittedHands() throws DuplicateIDException{
+		Hand hand1 = new Hand("Player1");
+		Hand hand2 = new Hand("Player2");
+		
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Nine,Card.Suit.Hearts));
+		hand1.add(new Card(Card.Rank.Two,Card.Suit.Hearts));
+		hand1.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
+		
+		hand2.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Nine,Card.Suit.Hearts));
+		hand2.add(new Card(Card.Rank.Two,Card.Suit.Hearts));
+		hand2.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
+		
+		round.submit(hand1);
+		round.submit(hand2);
+	}
 	
 	
 	
