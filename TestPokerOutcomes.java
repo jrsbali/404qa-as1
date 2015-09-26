@@ -32,7 +32,7 @@ public class TestPokerOutcomes extends TestCase {
 	
 	Hand hand;
 	public void setUp(){
-		hand = new Hand();
+		hand = new Hand("TestPokerOutcomes");
 	}
 	
 	public void tearDown(){
@@ -43,7 +43,6 @@ public class TestPokerOutcomes extends TestCase {
 	
 	
 	public void test_highCard(){
-		hand = new Hand();
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Nine,Card.Suit.Hearts));
 		hand.add(new Card(Card.Rank.Two,Card.Suit.Hearts));

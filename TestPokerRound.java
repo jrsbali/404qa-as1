@@ -12,17 +12,17 @@ public class TestPokerRound extends TestCase {
 	
 	
 	public void test_RoundWithOver4Players(){
-		round.submit(new Hand());
-		round.submit(new Hand());
-		round.submit(new Hand());
-		round.submit(new Hand());
-		round.submit(new Hand());
+		round.submit(new Hand("a"));
+		round.submit(new Hand("b"));
+		round.submit(new Hand("d"));
+		round.submit(new Hand("e"));
+		round.submit(new Hand("f"));
 		
 		assertFalse(round.validNumberOfPlayers());		
 	}
 	
 	public void test_RoundWith1Player(){
-		round.submit(new Hand());
+		round.submit(new Hand("TestPokerRound"));
 		assertFalse(round.validNumberOfPlayers());
 	}
 	
@@ -32,12 +32,12 @@ public class TestPokerRound extends TestCase {
 	
 	
 	public void test_validPokerHand(){
-		Hand hand = new Hand();
+		Hand hand = new Hand("TestPokerRound");
 		assertFalse(hand.validPokerHand());
 	}
 	
 	public void test_validPokerHandWith5Cards(){
-		Hand hand = new Hand();
+		Hand hand = new Hand("TestPokerRound");
 		hand.add(new Card());
 		hand.add(new Card());
 		hand.add(new Card());
@@ -64,7 +64,7 @@ public class TestPokerRound extends TestCase {
 		Hand hand2 = new Hand("Player1");
 		
 		round.submit(hand1);
-		assertEquals(InvalidPlayerIDException.class, round.submit(hand2));
+	    assertEquals(InvalidPlayerIDException.class, round.submit(hand2));
 		
 	}
 	

@@ -18,9 +18,6 @@ public class Hand implements Comparable {
 	
 	String nameID;
 	
-	public Hand() {
-	}
-	
 	public Hand(String nameID) {
 		this.nameID = nameID;
 	}
