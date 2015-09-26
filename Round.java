@@ -15,12 +15,24 @@ public class Round {
 	}
 	
 	
-	public void submit(Hand playerHand){
-		numberOfPlayers++;
-		hands.add(playerHand);
+	public void submit(Hand playerHand) throws DuplicateIDException {
+		if(isUniqueID(playerHand.getPlayerID())){
+			numberOfPlayers++;
+			hands.add(playerHand);
+		}else
+			throw new DuplicateIDException();
 	}
 	
 	
+	private boolean isUniqueID(String playerID) {
+		if(hands.isEmpty()) return true;
+		for(Hand h: hands)
+			if(h.getPlayerID().equalsIgnoreCase(playerID)) return false;
+		
+		return true;
+	}
+
+
 	public boolean validNumberOfPlayers(){
 		return numberOfPlayers >= 2 && numberOfPlayers <= 4;
 	}

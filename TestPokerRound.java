@@ -1,17 +1,21 @@
 package com.poker;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.*;
 
-public class TestPokerRound extends TestCase {
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestPokerRound {
 	
 	Round round;
 	
+	@Before
 	public void setUp(){
 		round = new Round();
 	}
 	
-	
-	public void test_RoundWithOver4Players(){
+	@Test
+	public void test_RoundWithOver4Players() throws DuplicateIDException{
 		round.submit(new Hand("a"));
 		round.submit(new Hand("b"));
 		round.submit(new Hand("d"));
@@ -21,21 +25,24 @@ public class TestPokerRound extends TestCase {
 		assertFalse(round.validNumberOfPlayers());		
 	}
 	
-	public void test_RoundWith1Player(){
+	@Test
+	public void test_RoundWith1Player() throws DuplicateIDException {
 		round.submit(new Hand("TestPokerRound"));
 		assertFalse(round.validNumberOfPlayers());
 	}
 	
+	@Test
 	public void test_RoundWithNoPlayer(){
 		assertFalse(round.validNumberOfPlayers());
 	}
 	
-	
+	@Test
 	public void test_validPokerHand(){
 		Hand hand = new Hand("TestPokerRound");
 		assertFalse(hand.validPokerHand());
 	}
 	
+	@Test
 	public void test_validPokerHandWith5Cards(){
 		Hand hand = new Hand("TestPokerRound");
 		hand.add(new Card());
@@ -46,6 +53,7 @@ public class TestPokerRound extends TestCase {
 		assertTrue(hand.validPokerHand());
 	}
 	
+	@Test
 	public void test_cardPrintout(){
 //		Card card1 = new Card("Ace","Spades");
 //		Card card2 = new Card("Two","Hearts");
@@ -58,14 +66,15 @@ public class TestPokerRound extends TestCase {
 		assertEquals("TwoHearts", card2.toString());
 	}
 	
+
 	
-	public void test_validPlayerIDs(){
+	@Test(expected=DuplicateIDException.class)
+	public void test_validPlayerIDs() throws DuplicateIDException{
 		Hand hand1 = new Hand("Player1");
 		Hand hand2 = new Hand("Player1");
 		
 		round.submit(hand1);
-	    assertEquals(InvalidPlayerIDException.class, round.submit(hand2));
-		
+		round.submit(hand2);
 	}
 	
 	
