@@ -206,7 +206,6 @@ public class TestPokerOutcomes extends TestCase {
 		assertEquals(expected, hand.printHand());
 		
 		
-		
 	}
 	
 

@@ -39,6 +39,19 @@ public class Hand implements Comparable {
 	}
 	
 	
+	/**
+	 * returns a string in the format of 
+	 * "playerName RankSuit RankSuit RankSuit RankSuit RankSuit" 
+	 * @return
+	 */
+	public String printHand(){
+		String result = nameID + " ";
+		for (Card c: cards){
+			result += c.getRank().name()+c.getSuit().name() +" ";
+		}
+		return result.trim();
+	}
+	
 	public int getResult(){
 		if(!validPokerHand()) return -1;
 		
