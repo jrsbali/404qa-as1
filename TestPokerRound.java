@@ -1,9 +1,13 @@
 package com.poker;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class TestPokerRound {
 	
@@ -45,11 +49,11 @@ public class TestPokerRound {
 	@Test
 	public void test_validPokerHandWith5Cards(){
 		Hand hand = new Hand("TestPokerRound");
-		hand.add(new Card());
-		hand.add(new Card());
-		hand.add(new Card());
-		hand.add(new Card());
-		hand.add(new Card());
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Nine,Card.Suit.Hearts));
+		hand.add(new Card(Card.Rank.Two,Card.Suit.Hearts));
+		hand.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
 		assertTrue(hand.validPokerHand());
 	}
 	
@@ -69,7 +73,7 @@ public class TestPokerRound {
 
 	
 	@Test(expected=DuplicateIDException.class)
-	public void test_validPlayerIDs() throws DuplicateIDException{
+	public void throws_validPlayerIDs() throws DuplicateIDException  {
 		Hand hand1 = new Hand("Player1");
 		Hand hand2 = new Hand("Player1");
 		

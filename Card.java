@@ -19,14 +19,11 @@ public class Card {
 		int getVal(){
 			return val;
 		}
-
-	}
+	} // Rank definition
 	
 	
-	Rank rank;
-	Suit suit;
-	public Card() {
-	}
+	private Rank rank;
+	private Suit suit;
 	
 	public Card(Rank rank, Suit suit) {
 		this.rank = rank;
