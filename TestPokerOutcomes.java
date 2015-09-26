@@ -166,7 +166,8 @@ public class TestPokerOutcomes {
 	
 	
 	@Test
-	public void test_4playerRanking(){
+	public void test_4playerRanking() 
+	throws DuplicateIDException, DuplicateCardsException{
 		Round round = new Round();
 		
 		// royal flush
@@ -204,7 +205,6 @@ public class TestPokerOutcomes {
 		hand4.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
 		hand4.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
 
-		try{
 			round.submit(hand1);
 			round.submit(hand2);
 			round.submit(hand3);
@@ -213,9 +213,6 @@ public class TestPokerOutcomes {
 			List<String> expected = new ArrayList<String>
 				(Arrays.asList("Randy", "Clyde", "Jody", "Ulric"));
 			assertEquals(expected,round.rankResults());
-		}catch(DuplicateIDException d){
-				d.getMessage();
-		}
 	}
 	
 	

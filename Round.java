@@ -15,7 +15,12 @@ public class Round {
 	}
 	
 	
-	public void submit(Hand playerHand) throws DuplicateIDException {
+	public void submit(Hand playerHand) 
+			throws DuplicateIDException, DuplicateCardsException {
+		
+		if(hasDuplicateCards()) throw new DuplicateCardsException();
+		
+		
 		if(isUniqueID(playerHand.getPlayerID())){
 			numberOfPlayers++;
 			hands.add(playerHand);
@@ -24,6 +29,11 @@ public class Round {
 	}
 	
 	
+	private boolean hasDuplicateCards() {
+		return false;
+	}
+
+
 	private boolean isUniqueID(String playerID) {
 		if(hands.isEmpty()) return true;
 		for(Hand h: hands)
