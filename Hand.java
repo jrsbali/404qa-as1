@@ -73,9 +73,33 @@ public class Hand implements Comparable {
 		
 		if(hasOnePair()) return 2;
 		
-		return 0;
+		// high card hand
+		return 1;
 		
 	}
+
+	/**
+	 * returns the highest ranking card on hand.
+	 * ACE is the highest
+	 * @return
+	 */
+	public Card.Rank getHighestRank(){
+		Card.Rank currRank;
+		// get the first card
+		Card.Rank tempHighest = cards.get(0).getRank();
+		for(int i=1; i<cards.size(); i++){
+			// highest possible RANK is the ACE
+			if(tempHighest==Card.Rank.Ace) return tempHighest;
+
+			currRank = cards.get(i).getRank();
+			
+			if(currRank.getVal()>tempHighest.getVal())
+				tempHighest = currRank; 
+		}
+		
+		return tempHighest;
+	}
+	
 	
 	private boolean hasRoyalFlush() {
 		if(getRankSetSize()==MAX_SIZE && sameSuits()){
