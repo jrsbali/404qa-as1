@@ -41,6 +41,20 @@ public class TestPokerOutcomes extends TestCase {
         assertNull(hand);
 	}
 	
+	
+	public void test_highCard(){
+		hand = new Hand();
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Nine,Card.Suit.Hearts));
+		hand.add(new Card(Card.Rank.Two,Card.Suit.Hearts));
+		hand.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
+
+		assertEquals(1, hand.getResult());
+		assertEquals(Card.Rank.Ace, hand.getHighestRank());
+		
+	}
+	
 	public void test_onePair(){
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
@@ -204,9 +218,9 @@ public class TestPokerOutcomes extends TestCase {
 				"Ulric AceClubs AceHearts KingHearts KingClubs QueenDiamonds";
 		
 		assertEquals(expected, hand.printHand());
-		
-		
 	}
+	
+	
 	
 
 
