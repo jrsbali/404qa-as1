@@ -107,11 +107,21 @@ public class TestPokerRound {
 	}
 	
 	
+	@Test(expected=InvalidPokerHand.class)
+	public void test_submitCardsWithLessThan5Cards()
+			throws DuplicateIDException, DuplicateCardsException,
+			InvalidPokerHand{
+		Hand hand1 = new Hand("Player1");
+		
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Nine,Card.Suit.Hearts));
+		hand1.add(new Card(Card.Rank.Two,Card.Suit.Hearts));
+	
+		round.submit(hand1);
+	}
 	
 	
 	
 	
 	
-	
-
 }
