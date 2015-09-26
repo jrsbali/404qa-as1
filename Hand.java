@@ -47,7 +47,7 @@ public class Hand implements Comparable {
 	public String printHand(){
 		String result = nameID + " ";
 		for (Card c: cards){
-			result += c.getRank().name()+c.getSuit().name() +" ";
+			result += c.toString() +" ";
 		}
 		return result.trim();
 	}
