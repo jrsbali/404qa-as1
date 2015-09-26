@@ -2,23 +2,29 @@ package com.poker;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Round {
 	
 	int numberOfPlayers;
 	List<Hand> hands;
 	
+	Set<Card> cardsInPlay;
+	final int EXPECTED_CARDS_PER_HAND = 5;
+	
 	
 	public Round() {
 		hands = new ArrayList<Hand>();
+		cardsInPlay = new HashSet<Card>();
 	}
 	
 	
 	public void submit(Hand playerHand) 
 			throws DuplicateIDException, DuplicateCardsException {
 		
-		if(hasDuplicateCards()) throw new DuplicateCardsException();
+		if(hasDuplicateCards(playerHand)) throw new DuplicateCardsException();
 		
 		
 		if(isUniqueID(playerHand.getPlayerID())){
@@ -29,7 +35,7 @@ public class Round {
 	}
 	
 	
-	private boolean hasDuplicateCards() {
+	private boolean hasDuplicateCards(Hand playerHand) {
 		return false;
 	}
 
