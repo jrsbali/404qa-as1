@@ -42,4 +42,25 @@ public class Card {
 		return rank;
 	}
 	
+	@Override
+	public boolean equals(Object other){
+		Card otherCard = (Card)other;
+		
+		if(this==otherCard) return true;
+		if(!(other instanceof Card)) return false;
+		
+		
+		if(this.suit==otherCard.getSuit() && 
+				this.rank==otherCard.getRank()) return true;
+		
+		return false;
+	}
+	
+	@Override
+	public int hashCode(){
+		return (13 * rank.getVal()) + (71 * suit.hashCode()) ;
+	}
+	
+	
+	
 }

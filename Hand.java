@@ -35,6 +35,9 @@ public class Hand implements Comparable {
 		return cards.size()==MAX_SIZE;
 	}
 	
+	public List<Card> getCards(){
+		return cards;
+	}
 	
 	/**
 	 * returns a string in the format of 

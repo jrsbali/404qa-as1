@@ -9,9 +9,9 @@ import java.util.Set;
 public class Round {
 	
 	int numberOfPlayers;
-	List<Hand> hands;
+	private List<Hand> hands;
 	
-	Set<Card> cardsInPlay;
+	private Set<Card> cardsInPlay;
 	final int EXPECTED_CARDS_PER_HAND = 5;
 	
 	
@@ -36,6 +36,9 @@ public class Round {
 	
 	
 	private boolean hasDuplicateCards(Hand playerHand) {
+		for(Card c: playerHand.getCards()){
+			if (!cardsInPlay.add(c)) return true;
+		}
 		return false;
 	}
 
