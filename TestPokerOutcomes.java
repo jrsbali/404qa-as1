@@ -182,6 +182,17 @@ public class TestPokerOutcomes {
 		assertEquals(expected, hand.printHand());
 	}
 	
+	@Test
+	public void test_getHandRanking(){
+		hand.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Queen,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Jack,Card.Suit.Clubs));
+		hand.add(new Card(Card.Rank.Ten,Card.Suit.Clubs));
+		
+		assertEquals("RoyalFlush", hand.getHandRanking());
+		
+	}
 	
 	
 

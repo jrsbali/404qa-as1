@@ -75,7 +75,6 @@ public class Hand implements Comparable {
 		
 		// high card hand
 		return 1;
-		
 	}
 
 	/**
@@ -250,7 +249,6 @@ public class Hand implements Comparable {
 		if(sameSuits() && !(hasStraight())){
 			return true;
 		}
-		
 		return false;
 	}
 
