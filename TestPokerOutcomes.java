@@ -228,7 +228,6 @@ public class TestPokerOutcomes {
 		hand.add(new Card(Card.Rank.King,Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
 		
-		
 		String expected = 
 				"Ulric AceClubs AceHearts KingHearts KingClubs QueenDiamonds";
 		

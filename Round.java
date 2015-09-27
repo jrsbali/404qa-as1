@@ -26,6 +26,7 @@ public class Round {
 	 * @param playerHand
 	 * @throws DuplicateIDException
 	 * @throws DuplicateCardsException
+	 * @throws InvalidPokerHand
 	 */
 	public void submit(Hand playerHand) 
 			throws DuplicateIDException, DuplicateCardsException,
