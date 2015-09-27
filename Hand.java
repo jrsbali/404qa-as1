@@ -259,6 +259,12 @@ public class Hand implements Comparable {
 		return ((Hand)other).getResult()-this.getResult();
 	}
 
+	/**
+	 * gets the rank of the hand
+	 * e.g. RoyalFlush, Flush, Straight etc..
+	 * @return
+	 */
+
 	public String getHandRanking() {
 		String result = "invalid poker hand";
 		if (validPokerHand()){
