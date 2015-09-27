@@ -148,5 +148,18 @@ public class Round {
 		return tempArr;
 	}
 	
+	/**
+	 * 
+	 * @param first
+	 * @param second
+	 * @return 1 if first is higher, -1 if second is higher, 0 if both are of 
+	 * equal value
+	 */
+	public int onePairTieBreaker(Hand first, Hand second){
+		
+		
+		return 0;
+		
+	}
 
 }
