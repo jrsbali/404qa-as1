@@ -180,25 +180,22 @@ public class TestPokerOutcomes {
 		hand1.add(new Card(Card.Rank.Jack,Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Ten,Card.Suit.Clubs));
 		
-		
 		// full house
 		Hand hand2 = new Hand("Jody");
-		hand2.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
-		hand2.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
 		hand2.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
-		hand2.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
-		hand2.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
-		
+		hand2.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
+		hand2.add(new Card(Card.Rank.Ace,Card.Suit.Spades));
+		hand2.add(new Card(Card.Rank.Six,Card.Suit.Diamonds));
+		hand2.add(new Card(Card.Rank.Six,Card.Suit.Spades));
 		
 		// two of a kind
 		Hand hand3 = new Hand("Ulric");
-		hand3.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
-		hand3.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
+		hand3.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
+		hand3.add(new Card(Card.Rank.Two,Card.Suit.Hearts));
 		hand3.add(new Card(Card.Rank.King,Card.Suit.Hearts));
-		hand3.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand3.add(new Card(Card.Rank.King,Card.Suit.Diamonds));
 		hand3.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
-		
-		
+
 		// straight flush
 		Hand hand4 = new Hand("Clyde");
 		hand4.add(new Card(Card.Rank.Nine,Card.Suit.Clubs));
@@ -207,14 +204,14 @@ public class TestPokerOutcomes {
 		hand4.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
 		hand4.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
 
-			round.submit(hand1);
-			round.submit(hand2);
-			round.submit(hand3);
-			round.submit(hand4);
+		round.submit(hand1);
+		round.submit(hand2);
+		round.submit(hand3);
+		round.submit(hand4);
 			
-			List<String> expected = new ArrayList<String>
-				(Arrays.asList("Randy", "Clyde", "Jody", "Ulric"));
-			assertEquals(expected,round.rankResults());
+		List<String> expected = new ArrayList<String>
+			(Arrays.asList("Randy", "Clyde", "Jody", "Ulric"));
+		assertEquals(expected,round.rankResults());
 	}
 	
 	
