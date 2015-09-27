@@ -8,15 +8,12 @@ import java.util.Set;
 
 public class Round {
 	
-	int numberOfPlayers;
 	private List<Hand> hands;
 	final private int  MAX_HANDS = 4;
-	
 	private Set<Card> cardsInPlay;
 	
 	public Round() {
 		hands = new ArrayList<Hand>();
-		numberOfPlayers = 0;
 		cardsInPlay = new HashSet<Card>();
 	}
 	
@@ -29,6 +26,7 @@ public class Round {
 	 * @throws DuplicateIDException
 	 * @throws DuplicateCardsException
 	 * @throws InvalidPokerHand
+	 * @throws MaxHandsLimitException
 	 */
 	public void submit(Hand playerHand) 
 			throws DuplicateIDException, DuplicateCardsException,
@@ -42,7 +40,6 @@ public class Round {
 		if(hasDuplicateCards(playerHand)) throw new DuplicateCardsException();
 		
 		if(isUniqueID(playerHand.getPlayerID())){
-			++numberOfPlayers;
 			hands.add(playerHand);
 		}else
 			throw new DuplicateIDException();
@@ -67,6 +64,7 @@ public class Round {
 
 
 	public boolean validNumberOfPlayers(){
+		int numberOfPlayers = hands.size();
 		return numberOfPlayers >= 2 && numberOfPlayers <= 4;
 	}
 	
