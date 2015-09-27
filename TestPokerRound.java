@@ -233,6 +233,30 @@ public class TestPokerRound {
 	}
 	
 	
+	@Test
+	public void test_getRankResultsWithOnlyOneSubmission() 
+			throws DuplicateIDException, DuplicateCardsException,
+			InvalidPokerHand, MaxHandsLimitException,
+			
+			MinimumHandsException
+	{
+		
+		// royal flush
+		Hand hand1 = new Hand("Randy");
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Queen,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Jack,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Ten,Card.Suit.Clubs));
+		
+		round.submit(hand1);
+		
+		// will throw MinimumHandsExeption if 
+		// the total hands submitted is less than 2
+		round.rankResults();
+	}
+	
+	
 	
 	
 	
