@@ -279,7 +279,7 @@ public class Hand implements Comparable {
 				case(4): result = "ThreeOfAKind" ;break;
 				case(3): result = "TwoPair" ;break;
 				case(2): result = "OnePair" ;break;
-				case(1): result = "RoyalFlush" ;break;
+				case(1): result = "HighCard" ;break;
 			}
 		}
 		return result;
