@@ -259,4 +259,24 @@ public class Hand implements Comparable {
 		return ((Hand)other).getResult()-this.getResult();
 	}
 
+	public String getHandRanking() {
+		String result = "invalid poker hand";
+		if (validPokerHand()){
+			int rank = getResult();
+			switch(rank){
+				case(10): result = "RoyalFlush" ;break;
+				case(9): result = "StraightFlush" ;break;
+				case(8): result = "FourOfAKind" ;break;
+				case(7): result = "FullHouse" ;break;
+				case(6): result = "Flush" ;break;
+				case(5): result = "Straight" ;break;
+				case(4): result = "ThreeOfAKind" ;break;
+				case(3): result = "TwoPair" ;break;
+				case(2): result = "OnePair" ;break;
+				case(1): result = "RoyalFlush" ;break;
+			}
+		}
+		return result;
+	}// end getHankdRanking
+
 }
