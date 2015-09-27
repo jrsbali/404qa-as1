@@ -168,7 +168,7 @@ public class TestPokerOutcomes {
 	@Test
 	public void test_4playerRanking() 
 			throws DuplicateIDException, DuplicateCardsException,
-			InvalidPokerHand
+			InvalidPokerHand, MaxHandsLimitException
 	{
 		Round round = new Round();
 		

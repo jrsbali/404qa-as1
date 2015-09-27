@@ -10,11 +10,13 @@ public class Round {
 	
 	int numberOfPlayers;
 	private List<Hand> hands;
+	final private int  MAX_HANDS = 4;
 	
 	private Set<Card> cardsInPlay;
 	
 	public Round() {
 		hands = new ArrayList<Hand>();
+		numberOfPlayers = 0;
 		cardsInPlay = new HashSet<Card>();
 	}
 	
@@ -30,15 +32,17 @@ public class Round {
 	 */
 	public void submit(Hand playerHand) 
 			throws DuplicateIDException, DuplicateCardsException,
-			InvalidPokerHand
+			InvalidPokerHand, MaxHandsLimitException
 	{
+		
+		if(hands.size()+1>MAX_HANDS) throw new MaxHandsLimitException();
 		
 		if (!playerHand.validPokerHand()) throw new InvalidPokerHand();
 		
 		if(hasDuplicateCards(playerHand)) throw new DuplicateCardsException();
 		
 		if(isUniqueID(playerHand.getPlayerID())){
-			numberOfPlayers++;
+			++numberOfPlayers;
 			hands.add(playerHand);
 		}else
 			throw new DuplicateIDException();
