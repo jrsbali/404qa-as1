@@ -173,7 +173,9 @@ public class TestPokerRound {
 	@Test
 	public void test_4playerRanking() 
 			throws DuplicateIDException, DuplicateCardsException,
-			InvalidPokerHand, MaxHandsLimitException
+			InvalidPokerHand, MaxHandsLimitException,
+			
+			MinimumHandsException
 	{
 		Round round = new Round();
 		
@@ -233,7 +235,7 @@ public class TestPokerRound {
 	}
 	
 	
-	@Test
+	@Test(expected=MinimumHandsException.class)
 	public void test_getRankResultsWithOnlyOneSubmission() 
 			throws DuplicateIDException, DuplicateCardsException,
 			InvalidPokerHand, MaxHandsLimitException,

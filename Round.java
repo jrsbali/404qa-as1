@@ -10,6 +10,7 @@ public class Round {
 	
 	private List<Hand> hands;
 	final private int  MAX_HANDS = 4;
+	final private int  MIN_HANDS = 2;
 	private Set<Card> cardsInPlay;
 	
 	public Round() {
@@ -73,7 +74,9 @@ public class Round {
 	 * highest to lowest ranking
 	 * @return
 	 */
-	public List<String> rankResults(){
+	public List<String> rankResults() throws MinimumHandsException {
+		if(hands.size()<MIN_HANDS) throw new MinimumHandsException();
+		
 		Collections.sort(hands);
 		
 		List<String> rankings = new ArrayList<String>();
