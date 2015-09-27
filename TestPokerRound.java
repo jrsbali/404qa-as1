@@ -260,7 +260,7 @@ public class TestPokerRound {
 	
 	
 	@Test
-	public void test_4playerRankingWithHandResults() 
+	public void test_4playerRankingWithRankResultsWithHandType() 
 			throws DuplicateIDException, DuplicateCardsException,
 			InvalidPokerHand, MaxHandsLimitException,
 			
@@ -306,9 +306,9 @@ public class TestPokerRound {
 		round.submit(hand4);
 			
 		List<String> expected = new ArrayList<String>
-			(Arrays.asList("Randy RoyalFlush", "Clyde", "Jody FullHouse",
-					"Ulric TwoPair"));
-		assertEquals(expected,round.rankResults());
+			(Arrays.asList("Randy RoyalFlush", "Clyde StraightFlush",
+					"Jody FullHouse", "Ulric TwoPair"));
+		assertEquals(expected,round.rankResultsWithHandType());
 	}
 	
 	

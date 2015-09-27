@@ -86,6 +86,22 @@ public class Round {
 	
 		return rankings;
 	}
+
+
+	public List<String> rankResultsWithHandType() throws MinimumHandsException {
+		if(hands.size()<MIN_HANDS) throw new MinimumHandsException();
+		
+		Collections.sort(hands);
+		
+		List<String> rankings = new ArrayList<String>();
+		for (Hand h: hands){
+			rankings.add(h.getPlayerID()+" "+h.getHandRanking());
+		}
+	
+		return rankings;
+	
+	}
+	
 	
 	
 	
