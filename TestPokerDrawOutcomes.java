@@ -115,7 +115,6 @@ public class TestPokerDrawOutcomes {
 		hand2.add(new Card(Card.Rank.Jack,Card.Suit.Clubs));
 		hand2.add(new Card(Card.Rank.Nine,Card.Suit.Spades));
 		hand2.sort();	// sorts in descending order
-
 	
 		assertEquals("KingDiamonds KingSpades JackClubs NineSpades EightHearts",
 				hand2.printCardsOnly());		

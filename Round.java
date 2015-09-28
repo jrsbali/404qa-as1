@@ -147,10 +147,24 @@ public class Round {
 	 * equal value
 	 */
 	public int onePairTieBreaker(Hand first, Hand second){
+		// sorts in descending order
+		first.sort(); second.sort();
+		Card[] firstArr  = new Card[first.MAX_SIZE];
+		Card[] secondArr  = new Card[first.MAX_SIZE];
+		first.getCards().toArray(firstArr);
+		second.getCards().toArray(secondArr);
+		int currCardForFirst =-1;
+		int currCardForSecond =-1;
+		for(int i=0; i<firstArr.length; i++){
+			currCardForFirst=firstArr[i].getRank().getVal();
+			currCardForSecond=secondArr[i].getRank().getVal();
+			if(currCardForFirst!=currCardForSecond)
+				break;
+		}// end for loop
 		
-		
-		return 1;
-		
+		if(currCardForFirst>currCardForSecond) return 1;
+		if(currCardForFirst<currCardForSecond) return -1;
+		return 0;
 	}
 
 }
