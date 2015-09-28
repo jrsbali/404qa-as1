@@ -188,5 +188,9 @@ public class Round {
 		
 		return 0;
 	}
+	public int threeOfAKindDraw(Hand first, Hand second){
+		
+		return 1;
+	}
 
 }
