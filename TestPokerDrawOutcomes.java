@@ -155,6 +155,23 @@ public class TestPokerDrawOutcomes {
 		
 	}
 	
+	@Test
+	public void test_straight() throws InvalidHandsException{
+		hand1.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Four,Card.Suit.Hearts));
+		hand1.add(new Card(Card.Rank.Three,Card.Suit.Hearts));
+		hand1.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Six,Card.Suit.Diamonds));
+		
+		hand2.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Four,Card.Suit.Hearts));
+		hand2.add(new Card(Card.Rank.Three,Card.Suit.Hearts));
+		hand2.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
+		
+		assertEquals(-1, round.tieBreaker(hand1, hand2));
+	}
+	
 	
 	
 	
