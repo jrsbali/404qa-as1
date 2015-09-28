@@ -156,7 +156,7 @@ public class TestPokerDrawOutcomes {
 	}
 	
 	@Test
-	public void test_straight() throws InvalidHandsException{
+	public void test_straightDraw() throws InvalidHandsException{
 		hand1.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Four,Card.Suit.Hearts));
 		hand1.add(new Card(Card.Rank.Three,Card.Suit.Hearts));
@@ -173,6 +173,23 @@ public class TestPokerDrawOutcomes {
 	}
 	
 	
+	@Test
+	public void test_flushDraw()throws InvalidHandsException{
+		hand1.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Ten,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Seven,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
+		
+		hand2.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Ten,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Seven,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
+		
+		
+		assertEquals(-1, round.tieBreaker(hand1, hand2));
+	}
 	
 	
 	
