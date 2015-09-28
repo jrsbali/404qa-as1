@@ -174,7 +174,7 @@ public class TestPokerDrawOutcomes {
 	
 	
 	@Test
-	public void test_flushDraw()throws InvalidHandsException{
+	public void test_flushDraw() throws InvalidHandsException{
 		hand1.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Ten,Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Seven,Card.Suit.Clubs));
@@ -191,6 +191,23 @@ public class TestPokerDrawOutcomes {
 		assertEquals(-1, round.tieBreaker(hand1, hand2));
 	}
 	
+	@Test
+	public void test_fullHouseDraw()throws InvalidHandsException{
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));  
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
+		hand1.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
+		
+		hand2.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.King,Card.Suit.Diamonds));
+		hand2.add(new Card(Card.Rank.King,Card.Suit.Hearts));
+		hand2.add(new Card(Card.Rank.Queen,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Queen,Card.Suit.Clubs));
+		
+		//hand1 wins because of the 3-Aces
+		assertEquals(1, round.tieBreaker(hand1, hand2));
+	}
 	
 	
 	
