@@ -138,59 +138,16 @@ public class Round {
 	
 	}
 	
-	
-	/**
-	 * 
-	 * @param first
-	 * @param second
-	 * @return 1 if first is higher, -1 if second is higher, 0 if both are of 
-	 * equal value
-	 */
-	public int onePairTieBreaker(Hand first, Hand second){
-		// sorts in descending order
-		first.sort(); second.sort();
-		Card[] firstArr  = first.cardsToArray();
-		Card[] secondArr  = second.cardsToArray();
-		int currCardForFirst =-1;
-		int currCardForSecond =-1;
-		for(int i=0; i<firstArr.length; i++){
-			currCardForFirst=firstArr[i].getRank().getVal();
-			currCardForSecond=secondArr[i].getRank().getVal();
-			if(currCardForFirst!=currCardForSecond)
-				break;
-		}// end for loop
-		
-		
-		// check for ACES
-		if(firstArr[firstArr.length-1].getRank().getVal()==1)
-			currCardForFirst = firstArr[firstArr.length-1].getRank().getVal();
-		if(secondArr[secondArr.length-1].getRank().getVal()==1)
-			currCardForFirst = secondArr[secondArr.length-1].getRank().getVal();
-		
-		
-		if(currCardForFirst>currCardForSecond) return 1;
-		if(currCardForFirst<currCardForSecond) return -1;
-		return 0;
-	}
-	
-	public int twoPairTieBreaker(Hand first, Hand second){
+	public int tieBreaker(Hand first, Hand second){
 		int[] firstHand = first.cardsToNumericArray();
 		int[] secondHand = second.cardsToNumericArray();
 		
-		for(int i=0;i<firstHand.length;i++){
-			System.out.println(firstHand[i]);
-		}
-//		System.out.println(secondHand);
 		for(int i=0; i<firstHand.length; i++){
 			if(firstHand[i]>secondHand[i]) return 1;
 			if(firstHand[i]<secondHand[i]) return -1;
 		}
 		
 		return 0;
-	}
-	public int threeOfAKindDraw(Hand first, Hand second){
-		
-		return 1;
 	}
 
 }

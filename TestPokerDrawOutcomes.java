@@ -99,7 +99,7 @@ public class TestPokerDrawOutcomes {
 		hand2.add(new Card(Card.Rank.Jack,Card.Suit.Clubs));
 		hand2.add(new Card(Card.Rank.Nine,Card.Suit.Spades));
 	
-		assertEquals(1, round.onePairTieBreaker(hand1, hand2));
+		assertEquals(1, round.tieBreaker(hand1, hand2));
 	}
 	
 	@Test
@@ -132,7 +132,7 @@ public class TestPokerDrawOutcomes {
 		hand2.add(new Card(Card.Rank.King,Card.Suit.Clubs));
 		hand2.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
 		
-		assertEquals(1,round.twoPairTieBreaker(hand1, hand2));
+		assertEquals(1,round.tieBreaker(hand1, hand2));
 		
 	}
 	
@@ -151,7 +151,7 @@ public class TestPokerDrawOutcomes {
 		hand2.add(new Card(Card.Rank.Queen,Card.Suit.Clubs));
 		
 		// outputs a 1 if hand1 wins, -1 if hand2 wins, 0 if its a tie
-		assertEquals(1, round.threeOfAKindDraw(hand1,hand2));
+		assertEquals(1, round.tieBreaker(hand1,hand2));
 		
 	}
 	
