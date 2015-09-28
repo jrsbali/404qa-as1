@@ -149,10 +149,8 @@ public class Round {
 	public int onePairTieBreaker(Hand first, Hand second){
 		// sorts in descending order
 		first.sort(); second.sort();
-		Card[] firstArr  = new Card[first.MAX_SIZE];
-		Card[] secondArr  = new Card[first.MAX_SIZE];
-		first.getCards().toArray(firstArr);
-		second.getCards().toArray(secondArr);
+		Card[] firstArr  = first.cardsToArray();
+		Card[] secondArr  = second.cardsToArray();
 		int currCardForFirst =-1;
 		int currCardForSecond =-1;
 		for(int i=0; i<firstArr.length; i++){

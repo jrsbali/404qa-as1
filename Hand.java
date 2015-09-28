@@ -296,4 +296,9 @@ public class Hand implements Comparable {
 		return result;
 	}// end getHankdRanking
 
+	
+	public Card[] cardsToArray(){
+		return (Card[])cards.toArray(new Card[cards.size()]);
+	}
+	
 }

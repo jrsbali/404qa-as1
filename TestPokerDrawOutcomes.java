@@ -78,10 +78,7 @@ public class TestPokerDrawOutcomes {
 	
 	
 	@Test
-	public void test_2playerRankingHighCardDraw() 
-			throws DuplicateIDException, DuplicateCardsException,
-			InvalidPokerHand, MaxHandsLimitException,
-			MinimumHandsException, InvalidHandsException
+	public void test_2playerOnePairDraw() 
 	{
 		// pair
 		Hand hand1 = new Hand("Randy");
@@ -99,9 +96,6 @@ public class TestPokerDrawOutcomes {
 		hand2.add(new Card(Card.Rank.Jack,Card.Suit.Clubs));
 		hand2.add(new Card(Card.Rank.Nine,Card.Suit.Spades));
 	
-		round.submit(hand1);
-		round.submit(hand2);
-		
 		assertEquals(1, round.onePairTieBreaker(hand1, hand2));
 	}
 	
