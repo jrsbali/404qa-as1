@@ -211,7 +211,7 @@ public class TestPokerDrawOutcomes {
 	
 	
 	@Test
-	public void test_fourOfAKind() throws InvalidHandsException{
+	public void test_fourOfAKindDraw() throws InvalidHandsException{
 		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
 		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
@@ -228,7 +228,23 @@ public class TestPokerDrawOutcomes {
 		assertEquals(1, round.tieBreaker(hand1, hand2));
 	}
 	
-	
+	@Test
+	public void test_straightFlushDraw()throws InvalidHandsException{
+		hand1.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Queen,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Jack,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Ten,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Nine,Card.Suit.Clubs));
+		
+		hand2.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Three,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Four,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
+		
+		//hand2 should win because of the Aces
+		assertEquals(-1, round.tieBreaker(hand1, hand2));
+	}
 	
 	
 	
