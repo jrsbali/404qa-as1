@@ -160,9 +160,21 @@ public class Round {
 				break;
 		}// end for loop
 		
+		
+		// check for ACES
+		if(firstArr[firstArr.length-1].getRank().getVal()==1)
+			currCardForFirst = firstArr[firstArr.length-1].getRank().getVal();
+		if(secondArr[secondArr.length-1].getRank().getVal()==1)
+			currCardForFirst = secondArr[secondArr.length-1].getRank().getVal();
+		
+		
 		if(currCardForFirst>currCardForSecond) return 1;
 		if(currCardForFirst<currCardForSecond) return -1;
 		return 0;
+	}
+	
+	public int twoPairTieBreaker(Hand first, Hand second){
+		return 1;
 	}
 
 }

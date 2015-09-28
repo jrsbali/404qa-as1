@@ -13,10 +13,13 @@ import org.junit.Test;
 public class TestPokerDrawOutcomes {
 	
 	private Round round;
-	
+	private Hand hand1;
+	private Hand hand2;
 	@Before
 	public void setUp(){
 		round = new Round();
+		hand1 = new Hand("Hand1");
+		hand2 = new Hand("Hand2");
 	}
 	
 	@After
@@ -115,6 +118,23 @@ public class TestPokerDrawOutcomes {
 	}
 	
 	
+	@Test
+	public void test_twoPairDraw(){
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Clubs)); // THIS Should win 
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Hearts)); // because of ACEs
+		hand1.add(new Card(Card.Rank.King,Card.Suit.Hearts));
+		hand1.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
+
+		hand2.add(new Card(Card.Rank.Queen,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Queen,Card.Suit.Hearts));
+		hand2.add(new Card(Card.Rank.King,Card.Suit.Hearts));
+		hand2.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
+		
+		assertEquals(1,round.twoPairTieBreaker(hand1, hand2));
+		
+	}
 	
 	
 	
