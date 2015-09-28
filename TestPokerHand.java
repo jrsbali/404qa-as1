@@ -7,7 +7,7 @@ public class TestPokerHand {
 	Hand hand;
 
 	@Before
-	public void setUp() {
+	public void setUp() throws MaxCardsLimitException {
 		hand = new Hand("TestPokerRound");
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Nine, Card.Suit.Hearts));
@@ -15,13 +15,11 @@ public class TestPokerHand {
 		hand.add(new Card(Card.Rank.King, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.King, Card.Suit.Diamonds));
 	}
-	
-	@Test(expected= MaxCardsLimitException.class)
-	public void test_maxCardAddedToAHand(){
+
+	@Test(expected = MaxCardsLimitException.class)
+	public void test_maxCardAddedToAHand() throws MaxCardsLimitException {
 		hand.add(new Card(Card.Rank.King, Card.Suit.Diamonds));
-		
+
 	}
-	
-	
 
 }

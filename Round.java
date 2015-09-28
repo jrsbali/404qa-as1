@@ -92,6 +92,7 @@ public class Round {
 	 * 
 	 * @return
 	 */
+
 	private List<Hand> sortReceivedHands() {
 		Collections.sort(hands);
 		// turn into an array to easily swap between elements

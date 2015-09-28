@@ -42,7 +42,7 @@ public class TestPokerOutcomes {
 	}
 
 	@Test
-	public void test_highCard() {
+	public void test_highCard() throws MaxCardsLimitException {
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Nine, Card.Suit.Hearts));
 		hand.add(new Card(Card.Rank.Two, Card.Suit.Hearts));
@@ -55,7 +55,7 @@ public class TestPokerOutcomes {
 	}
 
 	@Test
-	public void test_onePair() {
+	public void test_onePair() throws MaxCardsLimitException {
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Hearts));
 		hand.add(new Card(Card.Rank.King, Card.Suit.Hearts));
@@ -69,7 +69,7 @@ public class TestPokerOutcomes {
 	}
 
 	@Test
-	public void test_twoPair() {
+	public void test_twoPair() throws MaxCardsLimitException {
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Hearts));
 		hand.add(new Card(Card.Rank.King, Card.Suit.Hearts));
@@ -80,7 +80,7 @@ public class TestPokerOutcomes {
 	}
 
 	@Test
-	public void test_threeOFAKind() {
+	public void test_threeOFAKind() throws MaxCardsLimitException {
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Hearts));
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Diamonds));
@@ -91,7 +91,7 @@ public class TestPokerOutcomes {
 	}
 
 	@Test
-	public void test_straight() {
+	public void test_straight() throws MaxCardsLimitException {
 		hand.add(new Card(Card.Rank.Five, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Four, Card.Suit.Hearts));
 		hand.add(new Card(Card.Rank.Three, Card.Suit.Hearts));
@@ -102,7 +102,7 @@ public class TestPokerOutcomes {
 	}
 
 	@Test
-	public void test_flush() {
+	public void test_flush() throws MaxCardsLimitException {
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ten, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Seven, Card.Suit.Clubs));
@@ -113,7 +113,7 @@ public class TestPokerOutcomes {
 	}
 
 	@Test
-	public void test_fullHouse() {
+	public void test_fullHouse() throws MaxCardsLimitException {
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Diamonds));
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Hearts));
@@ -124,7 +124,7 @@ public class TestPokerOutcomes {
 	}
 
 	@Test
-	public void test_fourOfAKind() {
+	public void test_fourOfAKind() throws MaxCardsLimitException {
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Hearts));
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Diamonds));
@@ -135,7 +135,7 @@ public class TestPokerOutcomes {
 	}
 
 	@Test
-	public void test_straightFlush() {
+	public void test_straightFlush() throws MaxCardsLimitException {
 		hand.add(new Card(Card.Rank.Nine, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Eight, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Seven, Card.Suit.Clubs));
@@ -146,7 +146,7 @@ public class TestPokerOutcomes {
 	}
 
 	@Test
-	public void test_royalFlush() {
+	public void test_royalFlush() throws MaxCardsLimitException {
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.King, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Queen, Card.Suit.Clubs));
@@ -161,7 +161,7 @@ public class TestPokerOutcomes {
 	 * "playerName RankSuit RankSuit RankSuit RankSuit RankSuit"
 	 */
 	@Test
-	public void test_handStringOutput() {
+	public void test_handStringOutput() throws MaxCardsLimitException {
 		hand = new Hand("Ulric");
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Hearts));
@@ -175,7 +175,7 @@ public class TestPokerOutcomes {
 	}
 
 	@Test
-	public void test_getHandRanking() {
+	public void test_getHandRanking() throws MaxCardsLimitException {
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.King, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Queen, Card.Suit.Clubs));

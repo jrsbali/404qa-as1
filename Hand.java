@@ -22,7 +22,8 @@ public class Hand implements Comparable {
 		this.nameID = nameID;
 	}
 
-	public void add(Card card) {
+	public void add(Card card) throws MaxCardsLimitException {
+		if(cards.size()==MAX_SIZE) throw new MaxCardsLimitException();
 		cards.add(card);
 		numberOfCards++;
 	}

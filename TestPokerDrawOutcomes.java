@@ -29,7 +29,8 @@ public class TestPokerDrawOutcomes {
 	}
 
 	@Test
-	public void test_2playerRankingHighCardDraw() throws InvalidHandsException {
+	public void test_2playerRankingHighCardDraw() throws InvalidHandsException,
+			MaxCardsLimitException {
 		// HighCard
 		Hand hand1 = new Hand("Randy");
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Hearts)); // highest card
@@ -50,7 +51,8 @@ public class TestPokerDrawOutcomes {
 	}
 
 	@Test
-	public void test_2playerOnePairDraw() throws InvalidHandsException {
+	public void test_2playerOnePairDraw() throws InvalidHandsException,
+			MaxCardsLimitException {
 		// pair
 		Hand hand1 = new Hand("Randy");
 		hand1.add(new Card(Card.Rank.King, Card.Suit.Hearts));
@@ -72,7 +74,7 @@ public class TestPokerDrawOutcomes {
 	}
 
 	@Test
-	public void test_handSortDescendingOrder() {
+	public void test_handSortDescendingOrder() throws MaxCardsLimitException {
 		Hand hand2 = new Hand("Jody");
 		hand2.add(new Card(Card.Rank.King, Card.Suit.Diamonds));
 		hand2.add(new Card(Card.Rank.King, Card.Suit.Spades)); // highest card
@@ -87,7 +89,10 @@ public class TestPokerDrawOutcomes {
 	}
 
 	@Test
-	public void test_twoPairDraw() throws InvalidHandsException {
+	public void test_twoPairDraw() throws InvalidHandsException,
+			MaxCardsLimitException
+
+	{
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Clubs)); // THIS Should win
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Hearts)); // because of ACEs
 		hand1.add(new Card(Card.Rank.King, Card.Suit.Hearts));
@@ -105,7 +110,8 @@ public class TestPokerDrawOutcomes {
 	}
 
 	@Test
-	public void test_threeOFAKindDraw() throws InvalidHandsException {
+	public void test_threeOFAKindDraw() throws InvalidHandsException,
+			MaxCardsLimitException {
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Hearts));// this should win
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Diamonds));
@@ -124,7 +130,8 @@ public class TestPokerDrawOutcomes {
 	}
 
 	@Test
-	public void test_straightDraw() throws InvalidHandsException {
+	public void test_straightDraw() throws InvalidHandsException,
+			MaxCardsLimitException {
 		hand1.add(new Card(Card.Rank.Five, Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Four, Card.Suit.Hearts));
 		hand1.add(new Card(Card.Rank.Three, Card.Suit.Hearts));
@@ -141,7 +148,8 @@ public class TestPokerDrawOutcomes {
 	}
 
 	@Test
-	public void test_flushDraw() throws InvalidHandsException {
+	public void test_flushDraw() throws InvalidHandsException,
+			MaxCardsLimitException {
 		hand1.add(new Card(Card.Rank.Five, Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Ten, Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Seven, Card.Suit.Clubs));
@@ -158,7 +166,8 @@ public class TestPokerDrawOutcomes {
 	}
 
 	@Test
-	public void test_fullHouseDraw() throws InvalidHandsException {
+	public void test_fullHouseDraw() throws InvalidHandsException,
+			MaxCardsLimitException {
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Diamonds));
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Hearts));
@@ -176,7 +185,8 @@ public class TestPokerDrawOutcomes {
 	}
 
 	@Test
-	public void test_fourOfAKindDraw() throws InvalidHandsException {
+	public void test_fourOfAKindDraw() throws InvalidHandsException,
+			MaxCardsLimitException {
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Hearts));
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Diamonds));
@@ -194,7 +204,8 @@ public class TestPokerDrawOutcomes {
 	}
 
 	@Test
-	public void test_straightFlushDraw() throws InvalidHandsException {
+	public void test_straightFlushDraw() throws InvalidHandsException,
+			MaxCardsLimitException {
 		hand1.add(new Card(Card.Rank.King, Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Queen, Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Jack, Card.Suit.Clubs));
@@ -212,7 +223,8 @@ public class TestPokerDrawOutcomes {
 	}
 
 	@Test
-	public void test_royalFlushDraw() throws InvalidHandsException {
+	public void test_royalFlushDraw() throws InvalidHandsException,
+			MaxCardsLimitException {
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.King, Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Queen, Card.Suit.Clubs));
@@ -232,7 +244,7 @@ public class TestPokerDrawOutcomes {
 	@Test
 	public void test_mixedHandTypesWithDraws() throws InvalidHandsException,
 			DuplicateIDException, DuplicateCardsException, InvalidPokerHand,
-			MaxHandsLimitException {
+			MaxHandsLimitException, MaxCardsLimitException {
 
 		// high card
 		Hand kitkat = new Hand("kitkat");

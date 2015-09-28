@@ -20,7 +20,7 @@ public class TestPokerRound {
 	Hand hand;
 
 	@Before
-	public void setUp() {
+	public void setUp() throws MaxCardsLimitException {
 		round = new Round();
 		hand = new Hand("TestPokerRound");
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
@@ -32,7 +32,8 @@ public class TestPokerRound {
 
 	@Test(expected = MaxHandsLimitException.class)
 	public void test_RoundWithOver4Players() throws DuplicateIDException,
-			DuplicateCardsException, InvalidPokerHand, MaxHandsLimitException {
+			DuplicateCardsException, InvalidPokerHand, MaxHandsLimitException,
+			MaxCardsLimitException {
 		Round round = new Round();
 
 		// royal flush
@@ -101,7 +102,7 @@ public class TestPokerRound {
 	}
 
 	@Test
-	public void test_validPokerHandWith5Cards() {
+	public void test_validPokerHandWith5Cards() throws MaxCardsLimitException {
 		Hand hand = new Hand("TestPokerRound");
 		hand.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
 		hand.add(new Card(Card.Rank.Nine, Card.Suit.Hearts));
@@ -121,7 +122,8 @@ public class TestPokerRound {
 
 	@Test(expected = DuplicateIDException.class)
 	public void throws_validPlayerIDs() throws DuplicateIDException,
-			DuplicateCardsException, InvalidPokerHand, MaxHandsLimitException {
+			DuplicateCardsException, InvalidPokerHand, MaxHandsLimitException,
+			MaxCardsLimitException {
 		Hand hand1 = new Hand("TestPokerROUND");
 		hand1.add(new Card(Card.Rank.Jack, Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Seven, Card.Suit.Hearts));
@@ -136,7 +138,7 @@ public class TestPokerRound {
 	@Test(expected = DuplicateCardsException.class)
 	public void test_duplicateCardsInSubmittedHands()
 			throws DuplicateIDException, DuplicateCardsException,
-			InvalidPokerHand, MaxHandsLimitException {
+			InvalidPokerHand, MaxHandsLimitException, MaxCardsLimitException {
 		Hand hand1 = new Hand("Player1");
 		Hand hand2 = new Hand("Player2");
 
@@ -156,14 +158,12 @@ public class TestPokerRound {
 		round.submit(hand2);
 	}
 
-	
 	// check the printout ranking (descending order)
 	@Test
-	public void test_4playerRanking() 
-			throws DuplicateIDException,
+	public void test_4playerRanking() throws DuplicateIDException,
 			DuplicateCardsException, InvalidPokerHand, MaxHandsLimitException,
 
-			MinimumHandsException {
+			MinimumHandsException, MaxCardsLimitException {
 		Round round = new Round();
 
 		// royal flush
@@ -211,7 +211,7 @@ public class TestPokerRound {
 	@Test(expected = InvalidPokerHand.class)
 	public void test_submitCardsWithLessThan5Cards()
 			throws DuplicateIDException, DuplicateCardsException,
-			InvalidPokerHand, MaxHandsLimitException {
+			InvalidPokerHand, MaxHandsLimitException, MaxCardsLimitException {
 		Hand hand1 = new Hand("Player1");
 
 		hand1.add(new Card(Card.Rank.Ace, Card.Suit.Clubs));
@@ -224,9 +224,8 @@ public class TestPokerRound {
 	@Test(expected = MinimumHandsException.class)
 	public void test_getRankResultsWithOnlyOneSubmission()
 			throws DuplicateIDException, DuplicateCardsException,
-			InvalidPokerHand, MaxHandsLimitException,
-
-			MinimumHandsException {
+			InvalidPokerHand, MaxHandsLimitException, MinimumHandsException,
+			MaxCardsLimitException {
 
 		// royal flush
 		Hand hand1 = new Hand("Randy");
@@ -246,7 +245,7 @@ public class TestPokerRound {
 	@Test
 	public void test_4playerRankingWithRankResultsWithHandType()
 			throws DuplicateIDException, DuplicateCardsException,
-			InvalidPokerHand, MaxHandsLimitException,
+			InvalidPokerHand, MaxHandsLimitException, MaxCardsLimitException,
 
 			MinimumHandsException {
 		Round round = new Round();
