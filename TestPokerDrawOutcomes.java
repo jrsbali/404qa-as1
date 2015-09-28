@@ -27,13 +27,8 @@ public class TestPokerDrawOutcomes {
 		round = null;
 	}
 	
-	
 	@Test
-	public void test_4playerRankingHighCardDraw() 
-			throws DuplicateIDException, DuplicateCardsException,
-			InvalidPokerHand, MaxHandsLimitException,
-			
-			MinimumHandsException
+	public void test_2playerRankingHighCardDraw() throws InvalidHandsException  
 	{
 		// HighCard
 		Hand hand1 = new Hand("Randy");
@@ -50,32 +45,8 @@ public class TestPokerDrawOutcomes {
 		hand2.add(new Card(Card.Rank.Queen,Card.Suit.Hearts));
 		hand2.add(new Card(Card.Rank.Jack,Card.Suit.Clubs));
 		hand2.add(new Card(Card.Rank.Nine,Card.Suit.Spades));
-		
-		// HighCard
-		Hand hand3 = new Hand("Ulric");
-		hand3.add(new Card(Card.Rank.Five,Card.Suit.Spades));
-		hand3.add(new Card(Card.Rank.Six,Card.Suit.Diamonds));
-		hand3.add(new Card(Card.Rank.Three,Card.Suit.Spades));
-		hand3.add(new Card(Card.Rank.Two,Card.Suit.Hearts)); 
-		hand3.add(new Card(Card.Rank.Eight,Card.Suit.Hearts)); // highest card
 
-		// HighCard
-		Hand hand4 = new Hand("Clyde");
-		hand4.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
-		hand4.add(new Card(Card.Rank.Six,Card.Suit.Hearts));
-		hand4.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
-		hand4.add(new Card(Card.Rank.Three,Card.Suit.Diamonds));
-		hand4.add(new Card(Card.Rank.Nine,Card.Suit.Diamonds)); // highest card
-
-		round.submit(hand1);
-		round.submit(hand2);
-		round.submit(hand3);
-		round.submit(hand4);
-			
-		List<String> expected = new ArrayList<String>
-			(Arrays.asList("Randy HighCard", "Jody HighCard",
-					"Clyde HighCard", "Ulric HighCard"));
-		assertEquals(expected,round.finalRankings());
+		assertEquals(1, round.tieBreaker(hand1, hand2));
 	}
 	
 	
