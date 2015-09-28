@@ -174,7 +174,19 @@ public class Round {
 	}
 	
 	public int twoPairTieBreaker(Hand first, Hand second){
-		return 1;
+		int[] firstHand = first.cardsToNumericArray();
+		int[] secondHand = second.cardsToNumericArray();
+		
+		for(int i=0;i<firstHand.length;i++){
+			System.out.println(firstHand[i]);
+		}
+//		System.out.println(secondHand);
+		for(int i=0; i<firstHand.length; i++){
+			if(firstHand[i]>secondHand[i]) return 1;
+			if(firstHand[i]<secondHand[i]) return -1;
+		}
+		
+		return 0;
 	}
 
 }

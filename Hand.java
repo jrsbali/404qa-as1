@@ -301,4 +301,22 @@ public class Hand implements Comparable {
 		return (Card[])cards.toArray(new Card[cards.size()]);
 	}
 	
+	/**
+	 * Creates an array in sorted order (descending)
+	 * of the ranks of the hand
+	 * @return
+	 */
+	public int[] cardsToNumericArray(){
+		Collections.sort(cards);
+		int[] numericArr = new int[cards.size()];
+		int i=0;
+		int currVal = -1;
+		for(Card c: cards){
+			currVal = c.getRank().getVal();
+			if(currVal==1) currVal = 20;
+			numericArr[i++] = currVal;
+		}
+		return numericArr;
+	}
+	
 }
