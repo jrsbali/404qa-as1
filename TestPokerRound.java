@@ -156,8 +156,11 @@ public class TestPokerRound {
 		round.submit(hand2);
 	}
 
+	
+	// check the printout ranking (descending order)
 	@Test
-	public void test_4playerRanking() throws DuplicateIDException,
+	public void test_4playerRanking() 
+			throws DuplicateIDException,
 			DuplicateCardsException, InvalidPokerHand, MaxHandsLimitException,
 
 			MinimumHandsException {
