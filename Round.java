@@ -106,13 +106,12 @@ public class Round {
 	 * to their high cards
 	 * @param first
 	 * @param second
-	 * @return
+	 * @return 1=first is ranked higher, -1=second is ranked higher, 0=both equal
 	 * @throws InvalidHandsException
 	 */
 	public int tieBreaker(Hand first, Hand second) throws InvalidHandsException{
 		if(first.getResult()!=second.getResult()) 
 			throw new InvalidHandsException();
-		
 		
 		int[] firstHand = first.cardsToNumericArray();
 		int[] secondHand = second.cardsToNumericArray();

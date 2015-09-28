@@ -236,6 +236,57 @@ public class TestPokerDrawOutcomes {
 	}
 	
 	
+	@Test
+	public void test_mixedHandTypesWithDraws()throws InvalidHandsException,
+	 DuplicateIDException, DuplicateCardsException,
+	 InvalidPokerHand, MaxHandsLimitException
+	{
+		
+		// high card
+		Hand kitkat = new Hand("kitkat");
+		kitkat.add(new Card(Card.Rank.Ace,Card.Suit.Hearts)); // highest card
+		kitkat.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		kitkat.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
+		kitkat.add(new Card(Card.Rank.Jack,Card.Suit.Spades));
+		kitkat.add(new Card(Card.Rank.Nine,Card.Suit.Clubs));
+		
+		// three of a kind
+		Hand jairus = new Hand("jairus");
+		jairus.add(new Card(Card.Rank.Two,Card.Suit.Hearts));
+		jairus.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		jairus.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
+		jairus.add(new Card(Card.Rank.Ace,Card.Suit.Spades));
+		jairus.add(new Card(Card.Rank.Three,Card.Suit.Hearts));
+	
+		// straight flush
+		Hand bombadil = new Hand("bombadil");
+		bombadil.add(new Card(Card.Rank.Six,Card.Suit.Clubs));
+		bombadil.add(new Card(Card.Rank.Five,Card.Suit.Clubs));
+		bombadil.add(new Card(Card.Rank.Four,Card.Suit.Clubs));
+		bombadil.add(new Card(Card.Rank.Three,Card.Suit.Clubs));
+		bombadil.add(new Card(Card.Rank.Two,Card.Suit.Clubs));
+		
+		// straight flush
+		Hand tom = new Hand("tom");
+		tom.add(new Card(Card.Rank.Three,Card.Suit.Diamonds));
+		tom.add(new Card(Card.Rank.Four,Card.Suit.Diamonds));
+		tom.add(new Card(Card.Rank.Seven,Card.Suit.Diamonds));
+		tom.add(new Card(Card.Rank.Six,Card.Suit.Diamonds));
+		tom.add(new Card(Card.Rank.Five,Card.Suit.Diamonds));
+		
+		List<String> expected = new ArrayList<String>(
+				Arrays.asList("tom StraightFlush", "bombadil StraightFlush",
+				"jairus ThreeOfAKind", "kitkat HighCard"));
+		
+		round.submit(kitkat);
+		round.submit(jairus);
+		round.submit(bombadil);
+		round.submit(tom);
+		
+		assertEquals(expected, round.rankResultsWithHandType());
+		
+	}
+	
 	
 
 }
