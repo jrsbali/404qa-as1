@@ -1,6 +1,7 @@
 package com.poker;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -85,20 +86,17 @@ public class Round {
 	}
 
 	/**
-	 * sorts the hands in descending order by using their ranking type
+	 * sorts the hands in descending order by using their ranking type,
+	 * also accounts for ranking DRAW hand types
 	 * e.g.(highest) RoyalFlush, StraightFlush, Flush, HighCard (lowest)
 	 * 
 	 * @return
 	 */
 	private List<Hand> sortReceivedHands() {
 		Collections.sort(hands);
-		return hands;
-	}
-
-	public List<String> rankResultsWithHandType() {
 		// turn into an array to easily swap between elements
 		Hand[] cardsArr = new Hand[hands.size()];
-		sortReceivedHands().toArray(cardsArr);
+		hands.toArray(cardsArr);
 		Hand first = null;
 		Hand second = null;
 		Hand temp = null;
@@ -108,9 +106,6 @@ public class Round {
 				second = cardsArr[j + 1];
 				if (hasSameRank(first, second)) {
 					try {
-						System.out.println(first.getPlayerID());
-						System.out.println(second.getPlayerID());
-						System.out.println("===");
 						// if first is is ranked lower than second,
 						// swap them, in order to maintain descending 
 						// order of the winner
@@ -126,14 +121,17 @@ public class Round {
 				}
 			}
 		}// end for-loop
-		
+		return new ArrayList<Hand>(Arrays.asList(cardsArr));
+	}
+
+	public List<String> rankResultsWithHandType() {
 		List<String> results = new ArrayList<String>();
-		for(int i=0; i<cardsArr.length; i++){
-			temp = cardsArr[i];
-			results.add(temp.getPlayerID()+" "+temp.getHandRanking());
+		for(Hand h: sortReceivedHands()){
+			results.add(h.getPlayerID()+" "+h.getHandRanking());
 		}
 		return results;
 	}
+	
 
 	/**
 	 *
