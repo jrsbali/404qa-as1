@@ -210,6 +210,25 @@ public class TestPokerDrawOutcomes {
 	}
 	
 	
+	@Test
+	public void test_fourOfAKind() throws InvalidHandsException{
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Spades));
+		hand1.add(new Card(Card.Rank.Three,Card.Suit.Hearts));
+		
+		hand2.add(new Card(Card.Rank.King,Card.Suit.Hearts));
+		hand2.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.King,Card.Suit.Diamonds));
+		hand2.add(new Card(Card.Rank.King,Card.Suit.Spades));
+		hand2.add(new Card(Card.Rank.Queen,Card.Suit.Hearts));
+		
+		//hand1 should win because of the Aces
+		assertEquals(1, round.tieBreaker(hand1, hand2));
+	}
+	
+	
 	
 	
 	
