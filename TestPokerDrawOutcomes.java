@@ -136,7 +136,24 @@ public class TestPokerDrawOutcomes {
 		
 	}
 	
-	
+	@Test
+	public void test_threeOFAKindDraw(){
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));// this should win
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
+		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));
+		hand1.add(new Card(Card.Rank.King,Card.Suit.Spades));
+		hand1.add(new Card(Card.Rank.Queen,Card.Suit.Clubs));
+		
+		hand2.add(new Card(Card.Rank.King,Card.Suit.Hearts));
+		hand2.add(new Card(Card.Rank.King,Card.Suit.Clubs));
+		hand2.add(new Card(Card.Rank.King,Card.Suit.Diamonds));
+		hand2.add(new Card(Card.Rank.Two,Card.Suit.Spades));
+		hand2.add(new Card(Card.Rank.Queen,Card.Suit.Clubs));
+		
+		// outputs a 1 if hand1 wins, -1 if hand2 wins, 0 if its a tie
+		assertEquals(1, round.threeOfAKindDraw(hand1,hand2));
+		
+	}
 	
 	
 	
