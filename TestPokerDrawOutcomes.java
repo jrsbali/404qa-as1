@@ -81,7 +81,7 @@ public class TestPokerDrawOutcomes {
 	
 	
 	@Test
-	public void test_2playerOnePairDraw() 
+	public void test_2playerOnePairDraw()  throws InvalidHandsException
 	{
 		// pair
 		Hand hand1 = new Hand("Randy");
@@ -119,7 +119,7 @@ public class TestPokerDrawOutcomes {
 	
 	
 	@Test
-	public void test_twoPairDraw(){
+	public void test_twoPairDraw() throws InvalidHandsException{
 		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Clubs)); // THIS Should win 
 		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Hearts)); // because of ACEs
 		hand1.add(new Card(Card.Rank.King,Card.Suit.Hearts));
@@ -130,14 +130,14 @@ public class TestPokerDrawOutcomes {
 		hand2.add(new Card(Card.Rank.Queen,Card.Suit.Hearts));
 		hand2.add(new Card(Card.Rank.King,Card.Suit.Hearts));
 		hand2.add(new Card(Card.Rank.King,Card.Suit.Clubs));
-		hand2.add(new Card(Card.Rank.Queen,Card.Suit.Diamonds));
+		hand2.add(new Card(Card.Rank.Two,Card.Suit.Diamonds));
 		
 		assertEquals(1,round.tieBreaker(hand1, hand2));
 		
 	}
 	
 	@Test
-	public void test_threeOFAKindDraw(){
+	public void test_threeOFAKindDraw() throws InvalidHandsException{
 		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Hearts));// this should win
 		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Clubs));
 		hand1.add(new Card(Card.Rank.Ace,Card.Suit.Diamonds));

@@ -138,7 +138,11 @@ public class Round {
 	
 	}
 	
-	public int tieBreaker(Hand first, Hand second){
+	public int tieBreaker(Hand first, Hand second) throws InvalidHandsException{
+		if(first.getResult()!=second.getResult()) 
+			throw new InvalidHandsException();
+		
+		
 		int[] firstHand = first.cardsToNumericArray();
 		int[] secondHand = second.cardsToNumericArray();
 		
