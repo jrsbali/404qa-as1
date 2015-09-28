@@ -86,9 +86,9 @@ public class Round {
 	}
 
 	/**
-	 * sorts the hands in descending order by using their ranking type,
-	 * also accounts for ranking DRAW hand types
-	 * e.g.(highest) RoyalFlush, StraightFlush, Flush, HighCard (lowest)
+	 * sorts the hands in descending order by using their ranking type, also
+	 * accounts for ranking DRAW hand types e.g.(highest) RoyalFlush,
+	 * StraightFlush, Flush, HighCard (lowest)
 	 * 
 	 * @return
 	 */
@@ -107,12 +107,12 @@ public class Round {
 				if (hasSameRank(first, second)) {
 					try {
 						// if first is is ranked lower than second,
-						// swap them, in order to maintain descending 
+						// swap them, in order to maintain descending
 						// order of the winner
 						if (tieBreaker(first, second) == -1) {
 							temp = cardsArr[j];
 							cardsArr[j] = cardsArr[j + 1];
-							cardsArr[j +1] = temp;
+							cardsArr[j + 1] = temp;
 						}
 					} catch (InvalidHandsException ex) {
 						ex.getMessage();
@@ -126,12 +126,11 @@ public class Round {
 
 	public List<String> rankResultsWithHandType() {
 		List<String> results = new ArrayList<String>();
-		for(Hand h: sortReceivedHands()){
-			results.add(h.getPlayerID()+" "+h.getHandRanking());
+		for (Hand h : sortReceivedHands()) {
+			results.add(h.getPlayerID() + " " + h.getHandRanking());
 		}
 		return results;
 	}
-	
 
 	/**
 	 *

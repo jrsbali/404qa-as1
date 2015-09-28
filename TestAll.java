@@ -5,14 +5,8 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({
-	TestPokerRound.class,
-	TestPokerOutcomes.class,
-	TestPokerDrawOutcomes.class
-})
-
-
-
+@SuiteClasses({ TestPokerRound.class, TestPokerOutcomes.class,
+		TestPokerDrawOutcomes.class })
 public class TestAll {
 
 }
