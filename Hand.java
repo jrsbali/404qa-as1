@@ -51,6 +51,13 @@ public class Hand implements Comparable {
 		}
 		return result.trim();
 	}
+	public String printCardsOnly(){
+		String result = "";
+		for (Card c: cards){
+			result += c.toString() +" ";
+		}
+		return result.trim();
+	}
 	
 	public int getResult(){
 		if(!validPokerHand()) return -1;
@@ -252,6 +259,10 @@ public class Hand implements Comparable {
 		return false;
 	}
 
+	
+	public void sort(){
+		Collections.sort(cards);
+	}
 	
 	@Override
 	public int compareTo(Object other) {

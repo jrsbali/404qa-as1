@@ -1,6 +1,6 @@
 package com.poker;
 
-public class Card {
+public class Card implements Comparable {
 	public enum Suit { Diamonds, Hearts, Spades, Clubs}
 	public enum Rank {
 		Ace(1), // ace is the highest card of its suit
@@ -59,6 +59,14 @@ public class Card {
 	@Override
 	public int hashCode(){
 		return (13 * rank.getVal()) + (71 * suit.hashCode()) ;
+	}
+
+	/**
+	 * sorts cards in descending order
+	 */
+	@Override
+	public int compareTo(Object other) {
+		return ((Card)other).getRank().getVal()-this.rank.val;  
 	}
 	
 	

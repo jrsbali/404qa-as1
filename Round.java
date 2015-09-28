@@ -105,23 +105,6 @@ public class Round {
 		Hand[] tempArr = new Hand[hands.size()]; 
 		hands.toArray(tempArr);
 		
-		
-		List<String> finalRankings = new ArrayList<String>();
-		for(int i=0; i<tempArr.length; i++){
-			finalRankings.add(tempArr[i].getPlayerID()+" "+
-							tempArr[i].getHandRanking());
-		}
-		return finalRankings;
-	
-	}
-	
-	/**
-	 * accepts an array of HighestCardOrder 
-	 * and it will sort them from highest to lowest
-	 * @param tempArr
-	 * @return
-	 */
-	public Hand[] sortHighestCardOrder(Hand[] tempArr){
 		for(int i=0; i<tempArr.length-1; i++){
 			for(int j=i; j<tempArr.length-1; j++){
 				// they are equal must split them to create
@@ -145,8 +128,16 @@ public class Round {
 				}
 			}
 		} // end for loop
-		return tempArr;
+		
+		List<String> finalRankings = new ArrayList<String>();
+		for(int i=0; i<tempArr.length; i++){
+			finalRankings.add(tempArr[i].getPlayerID()+" "+
+							tempArr[i].getHandRanking());
+		}
+		return finalRankings;
+	
 	}
+	
 	
 	/**
 	 * 
@@ -158,7 +149,7 @@ public class Round {
 	public int onePairTieBreaker(Hand first, Hand second){
 		
 		
-		return 0;
+		return 1;
 		
 	}
 

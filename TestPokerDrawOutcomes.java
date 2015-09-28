@@ -105,6 +105,7 @@ public class TestPokerDrawOutcomes {
 		assertEquals(1, round.onePairTieBreaker(hand1, hand2));
 	}
 	
+	@Test
 	public void test_handSortDescendingOrder() 
 	{
 		Hand hand2 = new Hand("Jody");
@@ -113,10 +114,11 @@ public class TestPokerDrawOutcomes {
 		hand2.add(new Card(Card.Rank.Eight,Card.Suit.Hearts));
 		hand2.add(new Card(Card.Rank.Jack,Card.Suit.Clubs));
 		hand2.add(new Card(Card.Rank.Nine,Card.Suit.Spades));
-		hand2.sort();
-		
+		hand2.sort();	// sorts in descending order
+
+	
 		assertEquals("KingDiamonds KingSpades JackClubs NineSpades EightHearts",
-				hand2.toString());		
+				hand2.printCardsOnly());		
 	}
 	
 	
